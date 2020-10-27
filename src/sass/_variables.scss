@@ -2,19 +2,35 @@
 // Colors
 // ==========================================================================
 
-$color-primary: #dd4b39;
-$color-secondary: #06618c;
-$color-success: #3cc368;
-$color-warning: #f5a600;
-$color-background: #ecf0f5;
-$color-text: white;
-$color-error: #ec5840;
-$color-gray-1: #363636;
-$color-gray-2: #4f4f4f;
-$color-gray-3: #828282;
-$color-gray-4: #bdbdbd;
-$color-gray-5: #e0e0e0;
-$color-white: #fff;
+:root {
+  --color-primary: #dd4b39;
+  --color-secondary: #06618c;
+  --color-success: #3cc368;
+  --color-warning: #f5a600;
+  --color-background: #ecf0f5;
+  --color-text: white;
+  --footer-text: #444;
+  --color-error: #ec5840;
+
+  --footer-bg: white;
+
+  --color-white: #fff;
+}
+
+:root.dark-mode {
+  --color-primary: hsl(228, 28%, 20%);
+  --color-secondary: #06618c;
+  --color-success: #3cc368;
+  --color-warning: #f5a600;
+  --color-background: hsl(230, 17%, 14%);
+  --color-text: white;
+  --color-error: #ec5840;
+
+  --footer-bg: var(--color-primary);
+  --footer-text: #fff;
+
+  --color-white: #fff;
+}
 
 // ==========================================================================
 // Measures

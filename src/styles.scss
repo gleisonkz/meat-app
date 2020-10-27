@@ -16,7 +16,7 @@ html {
 html,
 body {
   height: 100%;
-  background-color: $color-background;
+  background-color: var(--color-background);
 }
 
 ul {
