@@ -25,6 +25,7 @@ Technologies that I used to develop this application
 - [Node.js](https://nodejs.org/en/)
 - [Angular 10](https://angular.io/)
 - [Angular Material 10](https://material.angular.io/)
+- [Angular Flex-Layout 10](https://www.npmjs.com/package/@angular/flex-layout)
 - [Sass](https://sass-lang.com/)
 - [TypeScript 4.0](https://www.typescriptlang.org/)
 - [RxJS](https://rxjs-dev.firebaseapp.com/)
