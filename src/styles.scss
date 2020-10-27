@@ -16,6 +16,18 @@ html {
 html,
 body {
   height: 100%;
+  background-color: $color-background;
+}
+
+ul {
+  li {
+    list-style-type: none;
+  }
+}
+
+b,
+strong {
+  font-weight: 700;
 }
 body {
   margin: 0;

@@ -4,4 +4,36 @@
 
 .l-header {
   background-color: $color-primary;
+  height: 50px;
+}
+
+.c-menu {
+  display: flex;
+  height: 100%;
+  margin: 0 20px;
+
+  .c-menu-list {
+    @include flex-center;
+    border: 0;
+    height: 100%;
+    color: $color-white;
+
+    .c-list__item {
+      padding: 10px;
+
+      .c-item__link {
+        font-size: 14px;
+        padding: 15px 5px;
+        cursor: pointer;
+
+        strong {
+          font-size: 18px;
+        }
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
 }
