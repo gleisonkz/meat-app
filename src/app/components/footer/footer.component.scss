@@ -1,0 +1,30 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+@import "../../../sass/functions";
+
+.l-footer {
+  background-color: $color-white;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 50px;
+  width: 100%;
+  font-size: 14px;
+
+  position: absolute;
+  bottom: 0;
+
+  .app-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $global-max-width;
+    height: 100%;
+    width: 100%;
+  }
+
+  span {
+    color: #444;
+  }
+}

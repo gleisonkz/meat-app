@@ -5,12 +5,16 @@
 .l-header {
   background-color: $color-primary;
   height: 50px;
+  @include flex-center;
+  padding: 0 50px;
 }
 
 .c-menu {
   display: flex;
   height: 100%;
-  margin: 0 20px;
+  width: 100%;
+
+  max-width: $global-max-width;
 
   .c-menu-list {
     @include flex-center;
@@ -20,18 +24,20 @@
 
     .c-list__item {
       padding: 10px;
+      @include flex-center;
+      height: 100%;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
 
       .c-item__link {
         font-size: 14px;
         padding: 15px 5px;
-        cursor: pointer;
 
         strong {
           font-size: 18px;
-        }
-
-        &:hover {
-          background: rgba(0, 0, 0, 0.1);
         }
       }
     }
