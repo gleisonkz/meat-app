@@ -9,8 +9,6 @@ export class ToggleThemeService {
 
   constructor() {}
   ToggleTheme(): void {
-    console.log("Next");
-
     this.changeTheme.next();
   }
 }
