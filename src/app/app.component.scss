@@ -27,7 +27,6 @@
     &::ng-deep router-outlet ~ * {
       position: absolute;
       width: 100%;
-      border: solid green;
     }
   }
 }
