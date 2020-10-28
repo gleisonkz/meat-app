@@ -3,7 +3,7 @@
 @import "../../../sass/functions";
 
 .l-header {
-  background-color: var(--color-primary);
+  background-color: var(--primary-color);
   height: 50px;
   @include flex-center;
   padding: 0 50px;

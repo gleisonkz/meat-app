@@ -1,0 +1,48 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+@import "../../../sass/functions";
+
+.c-panel {
+  @include flex-center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: rem(800);
+  height: rem(400);
+
+  margin: 20px auto;
+
+  color: var(--panel-text-color);
+  background-color: var(--panel-color);
+  border-radius: 10px;
+
+  .c-panel__title {
+    font-size: rem(55);
+  }
+
+  .c-panel__subtitle {
+    font-size: rem(25);
+  }
+
+  .c-panel__button {
+    @include flex-center;
+    width: rem(180);
+    height: rem(40);
+
+    padding: 15px;
+    border-radius: 5px;
+
+    user-select: none;
+
+    color: var(--panel-button-text-color);
+    background-color: var(--panel-button-bg-color);
+
+    &:hover {
+      opacity: 0.9;
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}

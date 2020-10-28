@@ -3,12 +3,18 @@
 // ==========================================================================
 
 :root {
-  --color-primary: #dd4b39;
-  --color-secondary: #06618c;
-  --color-success: #3cc368;
-  --color-warning: #f5a600;
-  --color-background: #ecf0f5;
-  --color-text: white;
+  --primary-color: #dd4b39;
+  --secondary-color: #06618c;
+  --success-color: #3cc368;
+  --warning-color: #f5a600;
+  --background-color: #ecf0f5;
+  --panel-color: white;
+  --text-color: white;
+
+  --panel-text-color: #444;
+  --panel-button-bg-color: #06618c;
+  --panel-button-text-color: white;
+
   --footer-text: #444;
   --color-error: #ec5840;
 
@@ -18,15 +24,17 @@
 }
 
 :root.dark-mode {
-  --color-primary: hsl(228, 28%, 20%);
-  --color-secondary: #06618c;
-  --color-success: #3cc368;
-  --color-warning: #f5a600;
-  --color-background: hsl(230, 17%, 14%);
-  --color-text: white;
+  --primary-color: hsl(228, 28%, 20%);
+  --secondary-color: #06618c;
+  --success-color: #3cc368;
+  --warning-color: #f5a600;
+  --background-color: hsl(230, 17%, 14%);
+  --panel-color: hsl(228, 28%, 20%);
+  --panel-text-color: white;
+  --text-color: white;
   --color-error: #ec5840;
 
-  --footer-bg: var(--color-primary);
+  --footer-bg: var(--primary-color);
   --footer-text: #fff;
 
   --color-white: #fff;
@@ -40,7 +48,7 @@ $global-max-width: 1200px;
 
 $global-font-size: rem(18);
 $global-line-height: 1.5;
-$global-radius: rem(6);
+$global-radius: 10px;
 $global-module-size: rem(30);
 
 // ==========================================================================
