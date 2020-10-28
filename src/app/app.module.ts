@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FooterComponent } from "./components/footer/footer.component";
 import { ToggleThemeComponent } from "./components/toggle-theme/toggle-theme.component";
 import { HomeComponent } from "./pages/home/home.component";
+import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HomeComponent } from "./pages/home/home.component";
     FooterComponent,
     ToggleThemeComponent,
     HomeComponent,
+    RestaurantsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

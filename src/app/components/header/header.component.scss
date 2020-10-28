@@ -26,15 +26,18 @@
       padding: 10px;
       @include flex-center;
       height: 100%;
+      transition: background-color 0.2s;
+      cursor: pointer;
 
+      &--active,
       &:hover {
-        background: rgba(0, 0, 0, 0.1);
-        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.1);
       }
 
       .c-item__link {
         font-size: 14px;
         padding: 15px 5px;
+        color: var(--color-white);
 
         strong {
           font-size: 18px;
