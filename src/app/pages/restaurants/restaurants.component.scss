@@ -1,0 +1,11 @@
+.c-restaurants {
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+
+    gap: 20px 40px;
+
+    margin: 20px;
+  }
+}
