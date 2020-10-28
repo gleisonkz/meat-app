@@ -1,5 +1,33 @@
-.container {
-  position: relative;
-  height: 100%;
-  background-color: inherit;
+// .container {
+//   position: relative;
+//   height: 100%;
+//   background-color: inherit;
+// }
+
+:host {
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+
+  mt-header,
+  mt-footer {
+    position: absolute;
+    width: 100%;
+  }
+
+  mt-footer {
+    bottom: 0;
+  }
+
+  main {
+    margin-top: 50px;
+    flex: 1;
+    position: relative;
+
+    &::ng-deep router-outlet ~ * {
+      position: absolute;
+      width: 100%;
+      border: solid green;
+    }
+  }
 }

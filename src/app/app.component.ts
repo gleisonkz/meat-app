@@ -1,12 +1,15 @@
 import { DOCUMENT } from "@angular/common";
 import { Component, Inject, OnInit } from "@angular/core";
 import { ToggleThemeService } from "./services/toggle-theme.service";
-import { Subject, Subscription } from "rxjs";
+import { Subscription } from "rxjs";
+import { RouterOutlet } from "@angular/router";
+import { fadeAnimation } from "./animations/fade.animation";
 
 @Component({
   selector: "mt-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
+  animations: [fadeAnimation],
 })
 export class AppComponent implements OnInit {
   title = "meat-app";
@@ -26,5 +29,10 @@ export class AppComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  public getRouterOutletState(outlet: RouterOutlet) {
+    console.log(outlet.isActivated);
+    return outlet.isActivated ? outlet.activatedRoute : "";
   }
 }
