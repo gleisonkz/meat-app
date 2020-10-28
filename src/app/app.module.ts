@@ -10,6 +10,7 @@ import { ToggleThemeComponent } from "./components/toggle-theme/toggle-theme.com
 import { HomeComponent } from "./pages/home/home.component";
 import { RestaurantsComponent } from "./pages/restaurants/restaurants.component";
 import { AboutComponent } from "./pages/about/about.component";
+import { RestaurantComponent } from './components/restaurant/restaurant.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AboutComponent } from "./pages/about/about.component";
     ToggleThemeComponent,
     HomeComponent,
     RestaurantsComponent,
+    RestaurantComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
