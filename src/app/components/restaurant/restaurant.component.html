@@ -1,18 +1,21 @@
 <a>
-  <div class="c-restaurant">
-    <img [src]="restaurant.imagePath" class="c-restaurant__image" />
+  <div class="restaurant">
+    <img [src]="restaurant.imagePath" class="restaurant__image" />
 
-    <span class="c-restaurant__name">{{ restaurant.name }}</span>
-
-    <span class="c-restaurant__rating">
-      <i class="fa fa-star"></i> {{ restaurant.rating }}
+    <span class="restaurant__name"
+      ><strong>{{ restaurant.name }}</strong>
     </span>
 
-    <span class="c-restaurant__category">
+    <span class="restaurant__rating">
+      <i class="fa fa-star restaurant__rating__icon"></i>
+      <strong class="restaurant__rating__text">{{ restaurant.rating }}</strong>
+    </span>
+
+    <span class="restaurant__category">
       {{ restaurant.category }}
     </span>
 
-    <span class="c-restaurant__delivery-estimate">
+    <span class="restaurant__delivery-estimate">
       {{ restaurant.deliveryEstimate }}
     </span>
   </div>

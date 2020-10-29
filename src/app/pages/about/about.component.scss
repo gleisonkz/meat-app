@@ -2,19 +2,19 @@
 @import "../../../sass/mixins";
 @import "../../../sass/functions";
 
-.c-about {
+.about {
   padding: 20px 40px;
 
   &__title {
-    color: var(--panel-text-color);
+    color: $color-panel-text;
   }
 
   &__text {
     margin-top: 20px;
-    color: var(--panel-text-color);
+    color: $color-panel-text;
   }
 
   &__link {
-    color: var(--link-color);
+    color: $color-link;
   }
 }

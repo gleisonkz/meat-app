@@ -4,12 +4,9 @@
 
 :host {
   height: 200px;
-  // width: 300px;
-  // max-width: 100%;
-  background-color: pink;
 }
 
-.c-restaurant {
+.restaurant {
   display: grid;
 
   grid-template-columns: 150px 1fr 1fr;
@@ -18,9 +15,11 @@
   height: 160px;
   width: 500px;
   max-width: 100%;
+  padding: 20px 40px 20px 10px;
   border-radius: 10px;
   overflow: hidden;
-  background-color: var(--panel-color);
+  background-color: $color-panel-bg;
+  color: $color-text;
 
   &__image {
     grid-area: 1 / 1 / 4 / 2;
@@ -30,12 +29,28 @@
 
   &__name {
     grid-row: 1;
+    text-transform: uppercase;
+    color: $color-text;
+
+    strong {
+      font-weight: 800;
+    }
   }
   &__rating {
-    grid-row: 2;
+    grid-column: 3;
+    justify-self: end;
+
+    &__icon {
+      margin-right: 5px;
+    }
   }
 
   &__category {
+    grid-row: 2;
+    align-self: center;
+  }
+
+  &__delivery-estimate {
     grid-row: 3;
   }
 }

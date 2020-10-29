@@ -1,4 +1,16 @@
-.c-restaurants {
+@import "../../../sass/functions";
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+
+.restaurants {
+  @include flex-center;
+  flex-direction: column;
+
+  &__title {
+    margin-top: rem(20);
+    color: $color-text;
+  }
+
   &__list {
     display: grid;
     grid-template-columns: 1fr 1fr;

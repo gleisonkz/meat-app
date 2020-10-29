@@ -1,6 +1,18 @@
 @import "~@angular/material/theming";
 @import "./sass/variables";
 
+:root {
+  @each $name, $color in $project-colors {
+    --color-#{$name}: #{$color};
+  }
+}
+
+:root.dark-mode {
+  @each $name, $color in $project-colors-theme-dark {
+    --color-#{$name}: #{$color};
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -36,5 +48,5 @@ strong {
 }
 body {
   margin: 0;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $font-primary;
 }

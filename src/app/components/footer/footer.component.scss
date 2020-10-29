@@ -2,8 +2,8 @@
 @import "../../../sass/mixins";
 @import "../../../sass/functions";
 
-.l-footer {
-  background-color: var(--footer-bg);
+.footer {
+  background-color: $color-footer-bg;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -25,6 +25,6 @@
   }
 
   span {
-    color: var(--footer-text);
+    color: $color-text;
   }
 }

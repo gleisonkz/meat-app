@@ -2,7 +2,7 @@
 @import "../../../sass/mixins";
 @import "../../../sass/functions";
 
-.c-panel {
+.panel {
   @include flex-center;
   justify-content: space-around;
   flex-direction: column;
@@ -11,19 +11,19 @@
 
   margin: 20px auto;
 
-  color: var(--panel-text-color);
-  background-color: var(--panel-color);
+  color: $color-panel-text;
+  background-color: $color-panel-bg;
   border-radius: 10px;
 
-  .c-panel__title {
+  &__title {
     font-size: rem(55);
   }
 
-  .c-panel__subtitle {
+  &__subtitle {
     font-size: rem(25);
   }
 
-  .c-panel__button {
+  &__button {
     @include flex-center;
     width: rem(180);
     height: rem(40);
@@ -33,8 +33,8 @@
 
     user-select: none;
 
-    color: var(--panel-button-text-color);
-    background-color: var(--panel-button-bg-color);
+    color: $color-panel-button-text;
+    background-color: $color-panel-button-bg;
 
     &:hover {
       opacity: 0.9;
