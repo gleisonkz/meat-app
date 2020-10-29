@@ -13,6 +13,8 @@ export class RestaurantsComponent implements OnInit {
   constructor(private restaurantesService: RestaurantsService) {}
 
   ngOnInit() {
-    this.restaurants = this.restaurantesService.getRestaurants();
+    this.restaurantesService
+      .getRestaurants()
+      .subscribe((restaurants) => (this.restaurants = restaurants));
   }
 }
