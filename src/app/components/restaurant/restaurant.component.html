@@ -6,10 +6,11 @@
       ><strong>{{ restaurant.name }}</strong>
     </span>
 
-    <span class="restaurant__rating">
-      <i class="fa fa-star restaurant__rating__icon"></i>
-      <strong class="restaurant__rating__text">{{ restaurant.rating }}</strong>
-    </span>
+    <mt-restaurant-rating
+      class="restaurant__rating"
+      [rating]="restaurant.rating"
+    >
+    </mt-restaurant-rating>
 
     <span class="restaurant__category">
       {{ restaurant.category }}
