@@ -13,6 +13,7 @@ $color-primary: #{"var(--color-primary)"};
 $color-background: #{"var(--color-background)"};
 $color-text: #{"var(--color-text)"};
 $color-link: #{"var(--color-link)"};
+$color-hover-bg-menu: #{"var(--color-hover-bg-menu)"};
 
 $color-panel-bg: #{"var(--color-panel-bg)"};
 $color-panel-text: #{"var(--color-panel-text)"};
@@ -32,6 +33,7 @@ $project-colors: (
   "panel-button-bg": #06618c,
   "panel-button-text": white,
   "footer-bg": white,
+  "hover-bg-menu": rgba(0, 0, 0, 0.1),
 );
 
 $project-colors-theme-dark: (
@@ -44,6 +46,7 @@ $project-colors-theme-dark: (
   "panel-button-bg": #06618c,
   "panel-button-text": white,
   "footer-bg": "var(--color-primary)",
+  "hover-bg-menu": rgba(133, 130, 130, 0.1),
 );
 
 // :root {

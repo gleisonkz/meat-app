@@ -9,8 +9,6 @@
   align-items: center;
   height: 100%;
 
-  border: solid 3px green;
-
   .restaurant-detail {
     display: grid;
 
@@ -30,7 +28,7 @@
       grid-area: 1 / span 2;
 
       padding: 10px 20px;
-      border-bottom: 1px solid $color-text;
+      border-bottom: 0.1px solid $color-text;
 
       &__title {
         color: $color-text;
@@ -48,6 +46,7 @@
       display: flex;
       flex-grow: 1;
       grid-column: span 2;
+      padding: rem(10);
 
       &__image {
         border-radius: 50%;
@@ -62,6 +61,19 @@
 
         margin-top: rem(20);
         margin-left: rem(10);
+
+        .info__title {
+          font-weight: bold;
+          color: $color-text;
+        }
+
+        .info__text {
+          color: $color-text;
+        }
+      }
+
+      &__info :not(:first-child) {
+        margin-top: rem(5);
       }
     }
 
@@ -70,14 +82,19 @@
       grid-column: span 2;
 
       a:first-of-type {
-        border-bottom: solid gray;
+        border-bottom: 2px solid $color-primary;
       }
 
       a {
         @include flex-center;
         height: rem(40);
 
+        &:hover {
+          background-color: $color-hover-bg-menu;
+        }
+
         width: 100%;
+        border-top: solid gray 1px;
         background-color: whitesmoke;
       }
     }

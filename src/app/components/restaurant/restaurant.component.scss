@@ -12,6 +12,12 @@
   grid-template-columns: 150px 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
 
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $color-hover-bg-menu;
+  }
+
   height: 160px;
   width: 500px;
   max-width: 100%;
