@@ -1,0 +1,10 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+@import "../../../sass/functions";
+
+.rating {
+  color: $color-text;
+  &__icon {
+    margin-right: 5px;
+  }
+}
