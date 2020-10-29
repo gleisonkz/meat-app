@@ -20,6 +20,7 @@
   overflow: hidden;
   background-color: $color-panel-bg;
   color: $color-text;
+  column-gap: rem(10);
 
   &__image {
     grid-area: 1 / 1 / 4 / 2;

@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.toggleThemeService.changeTheme.subscribe(() => {
-      console.log("Subscribe");
       this.documentRef.documentElement.classList.toggle("dark-mode");
     });
   }
@@ -32,7 +31,6 @@ export class AppComponent implements OnInit {
   }
 
   public getRouterOutletState(outlet: RouterOutlet) {
-    console.log(outlet.isActivated);
     return outlet.isActivated ? outlet.activatedRoute : "";
   }
 }
