@@ -1,0 +1,85 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+@import "../../../sass/functions";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+
+  border: solid 3px green;
+
+  .restaurant-detail {
+    display: grid;
+
+    grid-template: auto 1fr auto / auto 1fr;
+
+    width: 100%;
+    margin-top: 20px;
+    max-width: rem($global-max-width);
+    background-color: $color-panel-bg;
+
+    height: rem(300);
+    border-radius: $global-radius;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      grid-area: 1 / span 2;
+
+      padding: 10px 20px;
+      border-bottom: 1px solid $color-text;
+
+      &__title {
+        color: $color-text;
+        &__icon {
+          margin-right: 10px;
+        }
+
+        &__text {
+          display: inline-block;
+        }
+      }
+    }
+
+    &__body {
+      display: flex;
+      flex-grow: 1;
+      grid-column: span 2;
+
+      &__image {
+        border-radius: 50%;
+        width: rem(180);
+        height: rem(180);
+      }
+
+      &__info {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+        margin-top: rem(20);
+        margin-left: rem(10);
+      }
+    }
+
+    &__footer {
+      display: flex;
+      grid-column: span 2;
+
+      a:first-of-type {
+        border-bottom: solid gray;
+      }
+
+      a {
+        @include flex-center;
+        height: rem(40);
+
+        width: 100%;
+        background-color: whitesmoke;
+      }
+    }
+  }
+}
