@@ -55,10 +55,7 @@
           cursor: pointer;
           background-color: transparent;
           color: $color-panel-button-bg;
-
-          &:hover {
-            opacity: 0.9;
-          }
+          @include button-pressed;
         }
       }
     }
