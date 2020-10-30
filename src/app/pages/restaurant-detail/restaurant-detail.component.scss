@@ -84,8 +84,12 @@
       grid-column: span 2;
 
       a:first-of-type {
+        border-bottom-left-radius: 10px;
         border-bottom: 2px solid $color-tab-panel-border-bottom;
-        // border-bottom: 2px solid $color-primary;
+      }
+
+      a:last-of-type {
+        border-bottom-right-radius: 10px;
       }
 
       a {
