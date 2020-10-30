@@ -20,6 +20,9 @@ $color-panel-text: #{"var(--color-panel-text)"};
 $color-panel-button-bg: #{"var(--color-panel-button-bg)"};
 $color-panel-button-text: #{"var(--color-panel-button-text)"};
 
+$color-tab-panel-border-bottom: #{"var(--color-tab-panel-border-bottom)"};
+$color-tab-panel-border-top: #{"var(--color-tab-panel-border-top)"};
+
 $color-footer-text: #{"var(--color-footer-text)"};
 $color-footer-bg: #{"var(--color-footer-bg)"};
 
@@ -28,10 +31,13 @@ $project-colors: (
   "background": #ecf0f5,
   "text": #444,
   "link": #6ba8c7,
+  // "panel-bg": #e7e7e7,
   "panel-bg": white,
   "panel-text": #444,
   "panel-button-bg": #06618c,
   "panel-button-text": white,
+  "tab-panel-border-bottom": var(--color-primary),
+  "tab-panel-border-top": #f5f3f3,
   "footer-bg": white,
   "hover-bg-menu": rgba(0, 0, 0, 0.1),
 );
@@ -43,49 +49,13 @@ $project-colors-theme-dark: (
   "link": #6ba8c7,
   "panel-bg": "var(--color-primary)",
   "panel-text": white,
-  "panel-button-bg": #06618c,
+  "panel-button-bg": #dd4b39,
   "panel-button-text": white,
+  "tab-panel-border-bottom": #dd4b39,
+  "tab-panel-border-top": hsl(228deg 27% 24%),
   "footer-bg": "var(--color-primary)",
   "hover-bg-menu": rgba(133, 130, 130, 0.1),
 );
-
-// :root {
-//   --primary-color: #dd4b39;
-
-//   --background-color: #ecf0f5;
-//   --panel-color: white;
-//   --text-color: white;
-
-//   --link-color: #6ba8c7;
-
-//   --panel-text-color: #444;
-//   --panel-button-bg-color: #06618c;
-//   --panel-button-text-color: white;
-
-//   --footer-text: #444;
-//   --color-error: #ec5840;
-
-//   --footer-bg: white;
-
-//   --color-white: #fff;
-// }
-
-// :root.dark-mode {
-//   --primary-color: hsl(228, 28%, 20%);
-//   --secondary-color: #06618c;
-//   --success-color: #3cc368;
-//   --warning-color: #f5a600;
-//   --background-color: hsl(230, 17%, 14%);
-//   --panel-color: hsl(228, 28%, 20%);
-//   --panel-text-color: white;
-//   --text-color: white;
-//   --color-error: #ec5840;
-
-//   --footer-bg: var(--primary-color);
-//   --footer-text: #fff;
-
-//   --color-white: #fff;
-// }
 
 // ==========================================================================
 // Measures

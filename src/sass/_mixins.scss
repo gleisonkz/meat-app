@@ -4,3 +4,35 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin size($width, $height: $width) {
+  width: rem($width);
+  height: rem($height);
+}
+
+@mixin base-bold {
+  font-weight: bold;
+  color: $color-text;
+}
+
+$desktop: 1200;
+$tablet: 768;
+$mobile: $tablet - 1;
+
+@mixin mobile {
+  @media screen and (max-width: $mobile * 1px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet * 1px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop * 1px) {
+    @content;
+  }
+}

@@ -8,6 +8,8 @@
   justify-content: flex-start;
   align-items: center;
   height: 100%;
+  border: solid rebeccapurple;
+  overflow: auto;
 
   .restaurant-detail {
     display: grid;
@@ -28,7 +30,7 @@
       grid-area: 1 / span 2;
 
       padding: 10px 20px;
-      border-bottom: 0.1px solid $color-text;
+      border-bottom: 0.1px solid $color-tab-panel-border-top;
 
       &__title {
         color: $color-text;
@@ -82,20 +84,22 @@
       grid-column: span 2;
 
       a:first-of-type {
-        border-bottom: 2px solid $color-primary;
+        border-bottom: 2px solid $color-tab-panel-border-bottom;
+        // border-bottom: 2px solid $color-primary;
       }
 
       a {
         @include flex-center;
         height: rem(40);
+        color: $color-text;
 
         &:hover {
           background-color: $color-hover-bg-menu;
         }
 
         width: 100%;
-        border-top: solid gray 1px;
-        background-color: whitesmoke;
+        border-top: solid 1px $color-tab-panel-border-top;
+        // background-color: whitesmoke;
       }
     }
   }

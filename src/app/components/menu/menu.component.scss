@@ -1,0 +1,66 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+@import "../../../sass/functions";
+
+:host {
+  border: solid green 1px;
+  // display: flex;
+  // justify-content: space-between;
+
+  display: flex;
+
+  width: 100%;
+  margin-top: 20px;
+  max-width: rem($global-max-width);
+
+  .items-container {
+  }
+
+  .menu-item {
+    background-color: $color-panel-bg;
+    display: flex;
+
+    & + & {
+      margin-top: 20px;
+    }
+
+    &__image {
+      @include size(160);
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 0;
+
+      &__title {
+        @include base-bold;
+        text-transform: uppercase;
+      }
+
+      &__detail {
+        color: $color-text;
+      }
+
+      &__footer {
+        &__price {
+          @include base-bold;
+          margin-right: 10px;
+        }
+
+        &__button {
+          cursor: pointer;
+          background-color: transparent;
+          color: $color-panel-button-bg;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+}
