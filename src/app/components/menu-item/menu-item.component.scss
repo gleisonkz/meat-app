@@ -5,10 +5,7 @@
 .menu-item {
   background-color: $color-panel-bg;
   display: flex;
-
-  & + & {
-    margin-top: 20px;
-  }
+  margin-bottom: rem(20);
 
   &__image {
     @include size(160);
@@ -45,8 +42,4 @@
       }
     }
   }
-}
-
-.menu-item + .menu-item {
-  margin-top: rem(15);
 }

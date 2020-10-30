@@ -1,39 +1,5 @@
 <div class="items-container">
-  <mt-menu-item></mt-menu-item>
-  <!--
-
-  <div class="menu-item">
-    <img class="menu-item__image" src="assets/img/foods/donut.png" />
-
-    <div class="menu-item__info">
-      <span class="menu-item__info__title">Donut</span>
-      <span class="menu-item__info__detail">Coberto com chantilly</span>
-      <div class="menu-item__info__footer">
-        <span class="menu-item__info__footer__price">R$ 10,00</span>
-        <button class="menu-item__info__footer__button">
-          <i class="fa fa-plus-circle"></i> Adicionar
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <img class="menu-item__image" src="assets/img/foods/croissant.png" />
-
-    <div class="menu-item__info">
-      <span class="menu-item__info__title">Croissant</span>
-      <span class="menu-item__info__detail">
-        Recheado com queijo e presunto
-      </span>
-      <div class="menu-item__info__footer">
-        <span class="menu-item__info__footer__price">R$ 10,00</span>
-        <button class="menu-item__info__footer__button">
-          <i class="fa fa-plus-circle"></i> Adicionar
-        </button>
-      </div>
-    </div>
-  </div>
- -->
+  <mt-menu-item *ngFor="let item of items" [item]="item"></mt-menu-item>
 </div>
 
 <mt-shopping-cart></mt-shopping-cart>
