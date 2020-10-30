@@ -10,6 +10,28 @@
   height: rem($height);
 }
 
+@mixin button-pressed() {
+  &:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@mixin button-bg($bg) {
+  background: $bg;
+  &:hover {
+    background: darken($bg, 8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background: darken($bg, 25%);
+  }
+}
+
 @mixin base-bold {
   font-weight: bold;
   color: $color-text;

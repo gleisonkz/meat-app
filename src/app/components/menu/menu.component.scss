@@ -3,9 +3,6 @@
 @import "../../../sass/functions";
 
 :host {
-  // border: solid green 1px;
-  // display: flex;
-
   display: flex;
   justify-content: space-between;
 
@@ -17,7 +14,6 @@
     border-radius: $global-radius;
     overflow: hidden;
     width: 100%;
-    // border: solid blue 1px;
   }
 
   .menu-item {
@@ -66,5 +62,9 @@
         }
       }
     }
+  }
+
+  .menu-item + .menu-item {
+    margin-top: rem(15);
   }
 }

@@ -3,7 +3,7 @@
 @import "../../../sass/mixins";
 
 .restaurants {
-  @include flex-center;
+  @include flex-center(column);
 
   &__title {
     margin-top: rem(20);
