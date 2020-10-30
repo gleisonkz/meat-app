@@ -3,17 +3,21 @@
 @import "../../../sass/functions";
 
 :host {
-  border: solid green 1px;
+  // border: solid green 1px;
   // display: flex;
-  // justify-content: space-between;
 
   display: flex;
+  justify-content: space-between;
 
   width: 100%;
   margin-top: 20px;
   max-width: rem($global-max-width);
 
   .items-container {
+    border-radius: $global-radius;
+    overflow: hidden;
+    width: 100%;
+    // border: solid blue 1px;
   }
 
   .menu-item {

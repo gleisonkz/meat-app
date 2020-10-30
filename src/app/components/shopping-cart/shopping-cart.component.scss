@@ -1,0 +1,86 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+@import "../../../sass/functions";
+
+:host {
+  // border: solid orange;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  min-width: rem(320);
+
+  padding: rem(10 20);
+  margin-left: 10px;
+  border-radius: $global-radius;
+  background-color: $color-panel-bg;
+
+  &__title {
+    color: $color-text;
+
+    i {
+      margin-right: rem(5);
+    }
+  }
+
+  &__content {
+    margin-top: rem(20);
+    width: 100%;
+
+    .cart__item {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      &__text {
+        @include base-bold;
+      }
+
+      &__text::after {
+        content: ":";
+        @include base-bold;
+      }
+
+      &__value {
+        color: $color-text;
+      }
+    }
+
+    .cart__item:not(:last-child) {
+      border: solid 1px $color-tab-panel-border-top;
+      border-width: 1px 0 1px 0px;
+    }
+
+    .cart__item:last-child {
+      margin-top: rem(20);
+    }
+  }
+
+  &__buttons {
+    margin-top: rem(20);
+
+    &__button {
+      padding: rem(8 10);
+      border-radius: rem(5);
+      color: white;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    &__button:first-child {
+      background-color: $color-danger;
+      margin-right: rem(5);
+    }
+
+    &__button:last-child {
+      background-color: $color-success;
+    }
+  }
+}

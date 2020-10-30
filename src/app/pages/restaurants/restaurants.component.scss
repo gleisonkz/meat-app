@@ -4,7 +4,6 @@
 
 .restaurants {
   @include flex-center;
-  flex-direction: column;
 
   &__title {
     margin-top: rem(20);
