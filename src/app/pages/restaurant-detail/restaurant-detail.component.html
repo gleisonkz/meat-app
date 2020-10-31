@@ -32,9 +32,11 @@
   </div>
 
   <div class="restaurant-detail__footer">
-    <a href="#"> Menu </a>
-    <a href="#"> Reviews </a>
+    <a [routerLink]="['menu']" routerLinkActive="active-tab">Menu</a>
+    <a [routerLink]="['reviews']" routerLinkActive="active-tab">Reviews</a>
   </div>
 </section>
 
-<mt-menu></mt-menu>
+<router-outlet></router-outlet>
+
+<!-- <mt-menu></mt-menu> -->
