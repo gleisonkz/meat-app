@@ -1,0 +1,19 @@
+<div *ngFor="let item of fakeItems" class="review">
+  <header class="review__header">
+    <div class="user">
+      <img
+        src="assets/img/reactions/pissed.png"
+        alt="User Image"
+        class="user__image"
+      />
+      <div class="user__detail">
+        <span class="user__detail__name">Juliana</span>
+        <span class="user__detail__date">12/05/2020</span>
+      </div>
+    </div>
+    <mt-restaurant-rating [rating]="3.5"></mt-restaurant-rating>
+  </header>
+  <div class="review__body">
+    <p class="review__body__description">comentário de teste 2</p>
+  </div>
+</div>
