@@ -1,19 +1,32 @@
-<div *ngFor="let item of fakeItems" class="review">
+<div *ngFor="let item of reviews" class="review">
   <header class="review__header">
     <div class="user">
       <img
+        *ngIf="item.rating < 3"
         src="assets/img/reactions/pissed.png"
         alt="User Image"
         class="user__image"
       />
+      <img
+        *ngIf="item.rating >= 3 && item.rating < 4"
+        src="assets/img/reactions/soso.png"
+        alt="User Image"
+        class="user__image"
+      />
+      <img
+        *ngIf="item.rating >= 4"
+        src="assets/img/reactions/loved.png"
+        alt="User Image"
+        class="user__image"
+      />
       <div class="user__detail">
-        <span class="user__detail__name">Juliana</span>
-        <span class="user__detail__date">12/05/2020</span>
+        <span class="user__detail__name">{{ item?.name }}</span>
+        <span class="user__detail__date">{{ item?.date }}</span>
       </div>
     </div>
-    <mt-restaurant-rating [rating]="3.5"></mt-restaurant-rating>
+    <mt-restaurant-rating [rating]="item?.rating"></mt-restaurant-rating>
   </header>
   <div class="review__body">
-    <p class="review__body__description">comentário de teste 2</p>
+    <p class="review__body__description">{{ item.comments }}</p>
   </div>
 </div>

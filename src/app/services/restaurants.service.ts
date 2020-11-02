@@ -6,6 +6,7 @@ import { Restaurant } from "../models/restaurant";
 import { environment } from "../../environments/environment";
 import { ErrorHandler } from "../app.error-handler";
 import { MenuItem } from "../models/menu-item";
+import { Review } from "../models/review";
 
 @Injectable({
   providedIn: "root",
@@ -27,12 +28,18 @@ export class RestaurantsService {
 
   getMenuByRestaurantID(restaurantID: string): Observable<MenuItem[]> {
     return this.http.get<MenuItem[]>(`${environment.meatApiUrl}/menu`).pipe(
-      tap((c) => console.log("RestaurantID:", restaurantID)),
       map((items) =>
         items.filter((item) => item.restaurantId === restaurantID)
       ),
-      tap((c) => console.log(c)),
+      catchError(ErrorHandler.handleError)
+    );
+  }
 
+  getReviewsByRestaurantID(restaurantID: string): Observable<Review[]> {
+    return this.http.get<Review[]>(`${environment.meatApiUrl}/reviews`).pipe(
+      map((items) =>
+        items.filter((item) => item.restaurantId === restaurantID)
+      ),
       catchError(ErrorHandler.handleError)
     );
   }
