@@ -1,13 +1,13 @@
 <div class="menu-item">
-  <img class="menu-item__image" [src]="item.imagePath" />
+  <img class="menu-item__image" [src]="item?.imagePath" />
 
   <div class="menu-item__info">
-    <span class="menu-item__info__title">{{ item.name }}</span>
+    <span class="menu-item__info__title">{{ item?.name }}</span>
     <span class="menu-item__info__detail">
-      {{ item.description }}
+      {{ item?.description }}
     </span>
     <div class="menu-item__info__footer">
-      <span class="menu-item__info__footer__price"> {{ item.price }}</span>
+      <span class="menu-item__info__footer__price"> {{ item?.price }}</span>
       <button class="menu-item__info__footer__button">
         <i class="fa fa-plus-circle"></i> Adicionar
       </button>

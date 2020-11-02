@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { pipe } from "rxjs";
+import { tap } from "rxjs/operators";
 import { Restaurant } from "src/app/models/restaurant";
 import { RestaurantsService } from "../../services/restaurants.service";
 
@@ -20,5 +22,6 @@ export class RestaurantDetailComponent implements OnInit {
     this.restaurantService
       .getRestaurantByID(restaurantID)
       .subscribe((restaurant) => (this.restaurant = restaurant));
+    // console.log(this.restaurant);
   }
 }

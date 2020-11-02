@@ -3,27 +3,27 @@
     <div class="restaurant-detail__header__title">
       <i class="fa fa-home restaurant-detail__header__title__icon"></i>
       <h3 class="restaurant-detail__header__title__text">
-        {{ restaurant.name }}
+        {{ restaurant?.name }}
       </h3>
     </div>
     <mt-restaurant-rating
       class="restaurant-detail-header__rating"
-      [rating]="restaurant.rating"
+      [rating]="restaurant?.rating"
     >
     </mt-restaurant-rating>
   </section>
 
   <div class="restaurant-detail__body">
-    <img class="restaurant-detail__body__image" [src]="restaurant.imagePath" />
+    <img class="restaurant-detail__body__image" [src]="restaurant?.imagePath" />
     <div class="restaurant-detail__body__info">
       <span class="info__title">Categoria</span>
-      <span class="info__text">{{ restaurant.category }}</span>
+      <span class="info__text">{{ restaurant?.category }}</span>
       <span class="info__title">Quem somos</span>
       <p class="info__text">
-        {{ restaurant.about }}
+        {{ restaurant?.about }}
       </p>
       <span class="info__title">Horários</span>
-      <span class="info__text">{{ restaurant.hours }}</span>
+      <span class="info__text">{{ restaurant?.hours }}</span>
     </div>
   </div>
 
