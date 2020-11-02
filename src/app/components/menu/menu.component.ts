@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
   items: MenuItem[];
 
   ngOnInit() {
-    const restaurantID = this.route.parent.snapshot.url[1].path;
+    const restaurantID = this.route.parent.snapshot.params.id;
     this.restaurantsService
       .getMenuByRestaurantID(restaurantID)
       .subscribe((menuItems) => {
@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
       });
   }
 
-  addToCart(menuItem: MenuItem) {
+  addToCart(menuItem: MenuItem): void {
     console.log(menuItem);
   }
 }
