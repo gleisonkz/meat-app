@@ -21,7 +21,9 @@
       />
       <div class="user__detail">
         <span class="user__detail__name">{{ item?.name }}</span>
-        <span class="user__detail__date">{{ item?.date }}</span>
+        <span class="user__detail__date">{{
+          item?.date | date: "dd/MM/yyyy"
+        }}</span>
       </div>
     </div>
     <mt-restaurant-rating [rating]="item?.rating"></mt-restaurant-rating>

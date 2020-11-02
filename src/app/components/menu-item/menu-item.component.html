@@ -7,8 +7,10 @@
       {{ item?.description }}
     </span>
     <div class="menu-item__info__footer">
-      <span class="menu-item__info__footer__price"> {{ item?.price }}</span>
-      <button class="menu-item__info__footer__button">
+      <span class="menu-item__info__footer__price">
+        {{ item?.price | currency: "BRL":true }}</span
+      >
+      <button (click)="emitAddEvent()" class="menu-item__info__footer__button">
         <i class="fa fa-plus-circle"></i> Adicionar
       </button>
     </div>
