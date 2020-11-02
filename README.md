@@ -48,7 +48,29 @@ Features
 
 - ⬜️ Layout
 
-  - ⬜️ Header Component
-  - ⬜️ Home Component
+  - ✅ Home Component
+  - ✅ About Component
+  - ✅ About Component
+  - ✅ Header Component
+  - ✅ Footer Component
+  - ✅ Restaurants Component
+  - ✅ Restaurant Detail Component
+  - ✅ Restaurant Rating Component
+  - ✅ Reviews Component
+  - ✅ Menu Component
+  - ✅ Menu Item Component
+  - ✅ Shopping Cart Component
+  - ✅ Toggle Theme Component
+  - ⬜️ Order Summary Component
+  - ⬜️ Order
+  - ⬜️ Order Items
+  - ⬜️ Delivery Costs
+  - ⬜️ Not found
+  - ⬜️ Shared Module
+  - ⬜️ Input Component
+  - ⬜️ Notification Service
+  - ⬜️ SnackBar Component
+  - ⬜️ Radio Component
+  - ⬜️ Rating Component
 
 - ⬜️ Deploy
