@@ -21,12 +21,10 @@ export class ReviewsComponent {
   reviews: Review[];
 
   ngOnInit() {
-    const restaurantID = this.route.parent.snapshot.url[1].path;
+    const restaurantID = this.route.parent.snapshot.params.id;
     this.restaurantsService
       .getReviewsByRestaurantID(restaurantID)
       .subscribe((reviewsItems) => {
-        console.log(reviewsItems);
-
         this.reviews = reviewsItems;
       });
   }
