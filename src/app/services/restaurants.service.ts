@@ -27,20 +27,18 @@ export class RestaurantsService {
   }
 
   getMenuByRestaurantID(restaurantID: string): Observable<MenuItem[]> {
-    return this.http.get<MenuItem[]>(`${environment.meatApiUrl}/menu`).pipe(
-      map((items) =>
-        items.filter((item) => item.restaurantId === restaurantID)
-      ),
-      catchError(ErrorHandler.handleError)
-    );
+    return this.http
+      .get<MenuItem[]>(
+        `${environment.meatApiUrl}/restaurants/${restaurantID}/menu`
+      )
+      .pipe(catchError(ErrorHandler.handleError));
   }
 
   getReviewsByRestaurantID(restaurantID: string): Observable<Review[]> {
-    return this.http.get<Review[]>(`${environment.meatApiUrl}/reviews`).pipe(
-      map((items) =>
-        items.filter((item) => item.restaurantId === restaurantID)
-      ),
-      catchError(ErrorHandler.handleError)
-    );
+    return this.http
+      .get<Review[]>(
+        `${environment.meatApiUrl}/restaurants/${restaurantID}/reviews`
+      )
+      .pipe(catchError(ErrorHandler.handleError));
   }
 }

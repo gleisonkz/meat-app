@@ -14,7 +14,11 @@
   </section>
 
   <div class="restaurant-detail__body">
-    <img class="restaurant-detail__body__image" [src]="restaurant?.imagePath" />
+    <img
+      *ngIf="restaurant"
+      class="restaurant-detail__body__image"
+      [src]="restaurant?.imagePath"
+    />
     <div class="restaurant-detail__body__info">
       <span class="info__title">Categoria</span>
       <span class="info__text">{{ restaurant?.category }}</span>
@@ -34,5 +38,3 @@
 </section>
 
 <router-outlet></router-outlet>
-
-<!-- <mt-menu></mt-menu> -->

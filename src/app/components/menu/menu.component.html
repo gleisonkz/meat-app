@@ -1,5 +1,9 @@
 <div class="items-container">
-  <mt-menu-item *ngFor="let item of items" [item]="item"></mt-menu-item>
+  <mt-menu-item
+    (add)="addToCart($event)"
+    *ngFor="let item of items"
+    [item]="item"
+  ></mt-menu-item>
 </div>
 
 <mt-shopping-cart></mt-shopping-cart>
