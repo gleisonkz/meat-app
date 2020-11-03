@@ -15,7 +15,7 @@ export class ShoppingCartComponent implements OnInit {
     this.items = this.shoppingCartService.getItems();
   }
 
-  items: BehaviorSubject<CartItem[]>;
+  items: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);
 
   getTotal(): number {
     return this.shoppingCartService.getTotal();

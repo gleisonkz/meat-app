@@ -58,6 +58,7 @@
       &__text,
       &__quantity {
         font-size: rem(12);
+        color: $color-text;
       }
       &__value {
         font-size: rem(13);
@@ -74,7 +75,6 @@
 
       &__text:first-letter {
         text-transform: uppercase;
-        color: red;
       }
 
       &__text::after {
