@@ -39,8 +39,9 @@
     <button (click)="clearCart()" type="button" class="cart__buttons__button">
       <i class="fa fa-trash"></i> Clear
     </button>
-    <button type="button" class="cart__buttons__button">
-      <i class="fa fa-credit-card"></i> Submit Order
-    </button>
+    <a class="cart__buttons__button" [routerLink]="['/order']">
+      <i class="fa fa-credit-card"></i>
+      Submit Order
+    </a>
   </div>
 </div>

@@ -139,12 +139,17 @@
     margin-top: rem(20);
 
     &__button {
+      font-size: rem(13);
       @include flex-center;
       width: 100%;
       padding: rem(8 10);
       border-radius: rem(5);
       color: white;
       @include button-pressed;
+
+      &__link {
+        color: white;
+      }
 
       i {
         margin-right: rem(5);
