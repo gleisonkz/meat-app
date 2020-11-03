@@ -37,20 +37,37 @@
       align-items: center;
       width: 100%;
 
-      &__text {
+      div {
+        @include flex-center;
+      }
+
+      &__quantity-icon {
+        font-size: rem(10);
+        margin-right: rem(5);
+        cursor: pointer;
+        color: $color-text;
+      }
+
+      &__text,
+      &__quantity {
         font-size: rem(12);
       }
       &__value {
         font-size: rem(13);
       }
 
+      &__quantity {
+        margin-right: rem(5);
+      }
+
       &__text {
         @include base-bold;
-        text-transform: lowercase;
+        // text-transform: lowercase;
       }
 
       &__text:first-letter {
         text-transform: uppercase;
+        color: red;
       }
 
       &__text::after {

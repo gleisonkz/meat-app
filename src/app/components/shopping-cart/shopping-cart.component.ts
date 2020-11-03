@@ -21,6 +21,14 @@ export class ShoppingCartComponent implements OnInit {
     return this.shoppingCartService.getTotal();
   }
 
+  quantityUp(item: CartItem): void {
+    this.shoppingCartService.quantityUp(item);
+  }
+
+  quantityDown(item: CartItem): void {
+    this.shoppingCartService.quantityDown(item);
+  }
+
   addItem(item: CartItem): void {
     this.shoppingCartService.addItem(item.menuItem);
   }

@@ -5,9 +5,19 @@
   </div>
   <div class="cart__content">
     <div *ngFor="let item of items | async" class="cart__item">
-      <span class="cart__item__text"
-        >({{ item.quantity }}x) {{ item.menuItem.name }}</span
-      >
+      <div>
+        <i
+          (click)="quantityDown(item)"
+          class="fas fa-less-than cart__item__quantity-icon"
+        >
+        </i>
+        <span class="cart__item__quantity">({{ item.quantity }}x)</span>
+        <i
+          (click)="quantityUp(item)"
+          class="fas fa-greater-than cart__item__quantity-icon"
+        ></i>
+        <span class="cart__item__text">{{ item.menuItem.name }}</span>
+      </div>
       <div>
         <span class="cart__item__value">
           R$ {{ item.menuItem.price | number: "2.2" }}</span

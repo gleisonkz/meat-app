@@ -9,27 +9,20 @@ import { MenuItem } from "../models/menu-item";
 export class ShoppingCartService {
   constructor() {}
 
-  private items: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([
-    new CartItem({
-      id: "bake",
-      imagePath: "teste",
-      name: "CAPPUCCINO COM CHANTILLY",
-      description: "Tradicional cappuccino com chantilly",
-      price: 9.9,
-      restaurantId: "coffee-corner",
-    }),
-    new CartItem({
-      id: "bake2",
-      imagePath: "teste2",
-      name: "SUPER ESPRESO",
-      description: "Café espresso duplo.",
-      price: 12.5,
-      restaurantId: "coffee-corner",
-    }),
-  ]);
+  private items: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>(
+    []
+  );
 
   public getItems(): BehaviorSubject<CartItem[]> {
     return this.items;
+  }
+
+  public quantityUp(item: CartItem): void {
+    item.quantityUp();
+  }
+
+  public quantityDown(item: CartItem): void {
+    item.quantityDown();
   }
 
   addItem(item: MenuItem) {

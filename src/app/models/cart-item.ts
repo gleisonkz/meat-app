@@ -6,4 +6,12 @@ export class CartItem {
   getTotalValue(): number {
     return this.menuItem.price * this.quantity;
   }
+
+  quantityUp() {
+    this.quantity++;
+  }
+
+  quantityDown() {
+    this.quantity > 1 && this.quantity--;
+  }
 }
