@@ -8,13 +8,13 @@
       <div>
         <i
           (click)="quantityDown(item)"
-          class="fas fa-less-than cart__item__quantity-icon"
+          class="fas fa-minus cart__item__quantity-icon"
         >
         </i>
-        <span class="cart__item__quantity">({{ item.quantity }}x)</span>
+        <span class="cart__item__quantity">( {{ item.quantity }}x )</span>
         <i
           (click)="quantityUp(item)"
-          class="fas fa-greater-than cart__item__quantity-icon"
+          class="fas fa-plus cart__item__quantity-icon"
         ></i>
         <span class="cart__item__text">{{ item.menuItem.name }}</span>
       </div>
