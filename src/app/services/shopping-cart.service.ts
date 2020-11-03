@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject, Subject } from "rxjs";
 import { CartItem } from "../models/cart-item";
 import { MenuItem } from "../models/menu-item";
 
@@ -8,30 +9,53 @@ import { MenuItem } from "../models/menu-item";
 export class ShoppingCartService {
   constructor() {}
 
-  items: CartItem[];
+  private items: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>(
+    []
+  );
 
-  clear() {
-    this.items = [];
+  public getItems(): BehaviorSubject<CartItem[]> {
+    return this.items;
+  }
+
+  public quantityUp(item: CartItem): void {
+    item.quantityUp();
+  }
+
+  public quantityDown(item: CartItem): void {
+    item.quantityDown();
   }
 
   addItem(item: MenuItem) {
-    const foundedItem = this.items.find((c) => c.menuItem.id === item.id);
-    if (foundedItem) {
-      foundedItem.quantity++;
-      return;
-    }
-
-    this.items.push(new CartItem(item, 1));
+    const foundItem = this.items
+      .getValue()
+      .find((c) => c.menuItem.id === item.id);
+    const expectations = [
+      {
+        expect: () => foundItem !== undefined,
+        action: () => foundItem.quantity++,
+      },
+      {
+        expect: () => true,
+        action: () => this.items.getValue().push(new CartItem(item)),
+      },
+    ];
+    const currentExpect = expectations.find((c) => c.expect());
+    currentExpect.action();
   }
 
-  removeItem(item: MenuItem) {
-    const foundedItem = this.items.find((c) => c.menuItem.id === item.id);
+  public removeItem(item: CartItem) {
+    const items = this.items.getValue();
+    items.splice(items.indexOf(item, 1));
+    this.items.next(items);
+  }
+
+  public clear() {
+    this.items.next([]);
   }
 
   getTotal(): number {
-    return this.items.reduce(
-      (acc, currentItem) => (acc = acc + currentItem.getTotalValue()),
-      0
-    );
+    return this.items
+      .getValue()
+      .reduce((acc, currentItem) => acc + currentItem.getTotalValue(), 0);
   }
 }

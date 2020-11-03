@@ -23,7 +23,7 @@
       justify-content: space-between;
       height: 60%;
       padding: rem(10 10);
-      border-bottom: 1px solid $color-tab-panel-border-top;
+      @include base-border-bottom;
 
       .user {
         display: flex;
@@ -59,6 +59,7 @@
 
       &__description {
         padding-bottom: rem(10);
+        color: $color-text;
       }
     }
   }

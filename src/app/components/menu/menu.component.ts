@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MenuItem } from "../../models/menu-item";
 import { RestaurantsService } from "../../services/restaurants.service";
 import { ActivatedRoute } from "@angular/router";
+import { ShoppingCartService } from "../../services/shopping-cart.service";
 
 @Component({
   selector: "mt-menu",
@@ -11,6 +12,7 @@ import { ActivatedRoute } from "@angular/router";
 export class MenuComponent implements OnInit {
   constructor(
     private restaurantsService: RestaurantsService,
+    private shoppingCartService: ShoppingCartService,
     private route: ActivatedRoute
   ) {}
 
@@ -27,6 +29,6 @@ export class MenuComponent implements OnInit {
   }
 
   addToCart(menuItem: MenuItem): void {
-    console.log(menuItem);
+    this.shoppingCartService.addItem(menuItem);
   }
 }
