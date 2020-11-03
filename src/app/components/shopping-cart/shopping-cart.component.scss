@@ -2,10 +2,13 @@
 @import "../../../sass/mixins";
 @import "../../../sass/functions";
 
+$size-card: rem(450);
+
 :host {
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  width: $size-card;
 }
 
 .cart {
@@ -13,6 +16,7 @@
   flex-direction: column;
   align-items: baseline;
   min-width: rem(320);
+  width: $size-card;
 
   padding: rem(20);
   margin-left: 10px;
