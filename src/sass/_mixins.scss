@@ -10,6 +10,18 @@
   height: rem($height);
 }
 
+@mixin base-border-bottom() {
+  border-bottom: 0.1px solid $color-tab-panel-border-top;
+}
+
+@mixin form-title() {
+  font-size: 18px;
+  margin-bottom: rem(20);
+  font-weight: 300;
+  line-height: 1.4;
+  color: $color-text;
+}
+
 @mixin button-pressed() {
   & {
     outline: none;

@@ -30,7 +30,7 @@
       grid-area: 1 / span 2;
 
       padding: 10px 20px;
-      border-bottom: 0.1px solid $color-tab-panel-border-top;
+      @include base-border-bottom;
 
       &__title {
         color: $color-text;

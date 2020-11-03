@@ -1,0 +1,74 @@
+<h1 class="order__title">
+  <i class="fa fa-shopping-cart"></i>
+  Finish your order
+</h1>
+<form action="" class="order__form">
+  <fieldset class="client-information">
+    <legend class="form-legend">Client Information:</legend>
+    <div class="client-information__controls">
+      <input
+        type="text"
+        placeholder="Name"
+        name="name"
+        class="order__form__input"
+      />
+      <input
+        type="text"
+        placeholder="E-mail"
+        name="email"
+        class="order__form__input"
+      />
+      <input
+        type="text"
+        placeholder="E-mail check"
+        name="email-check"
+        class="order__form__input"
+      />
+    </div>
+  </fieldset>
+  <fieldset class="delivery-address">
+    <legend class="form-legend">Delivery Address:</legend>
+    <input
+      type="text"
+      placeholder="address"
+      name="address"
+      class="order__form__input"
+    />
+    <input
+      type="text"
+      placeholder="number"
+      name="number"
+      class="order__form__input"
+    />
+    <input
+      type="text"
+      placeholder="address 2"
+      name="address2"
+      class="order__form__input"
+    />
+  </fieldset>
+  <div class="order__items">
+    <h2 class="order__items__title"></h2>
+    <div class="order__items__table">
+      <div class="order__items__table__header">
+        <span class="order__items__table__header__item">Quantity</span>
+        <span class="order__items__table__header__item">Item</span>
+        <span class="order__items__table__header__item">Description</span>
+        <span class="order__items__table__header__item">Subtotal</span>
+      </div>
+      <div class="order__items__table__body">
+        <div class="order__items__table__body__item">
+          <span class="order__items__table__body__item">1</span>
+          <span class="order__items__table__body__item"
+            >Picolé de Brigadeiro</span
+          >
+          <span class="order__items__table__body__item"
+            >Picolé de brigadeiro recheado com côco.</span
+          >
+          <span class="order__items__table__body__item">R$ 8,50 </span>
+          <i class="fa fa-remove cart__item__icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
