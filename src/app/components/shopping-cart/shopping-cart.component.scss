@@ -19,6 +19,13 @@
   border-radius: $global-radius;
   background-color: $color-panel-bg;
 
+  &__empty-message {
+    margin-top: rem(20);
+    align-self: center;
+    color: $color-text;
+    font-size: rem(13);
+  }
+
   &__title {
     color: $color-text;
 
