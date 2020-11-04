@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Subscription } from "rxjs";
 import { CartItem } from "src/app/models/cart-item";
 import { ShoppingCartService } from "src/app/services/shopping-cart.service";
 
@@ -9,13 +9,19 @@ import { ShoppingCartService } from "src/app/services/shopping-cart.service";
   styleUrls: ["./shopping-cart.component.scss"],
 })
 export class ShoppingCartComponent implements OnInit {
-  constructor(private shoppingCartService: ShoppingCartService) {}
+  items: CartItem[];
+  subscription: Subscription;
 
+  constructor(private shoppingCartService: ShoppingCartService) {}
   ngOnInit() {
-    this.items = this.shoppingCartService.getItems();
+    this.subscription = this.shoppingCartService.items$.subscribe(
+      (items) => (this.items = items)
+    );
   }
 
-  items: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   getTotal(): number {
     return this.shoppingCartService.getTotal();

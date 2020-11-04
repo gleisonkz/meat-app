@@ -3,8 +3,8 @@
     <i class="fa fa-shopping-cart"></i>
     <strong>Cart</strong>
   </div>
-  <div *ngIf="items.getValue().length" class="cart__content">
-    <div *ngFor="let item of items | async" class="cart__item">
+  <div *ngIf="items.length" class="cart__content">
+    <div *ngFor="let item of items" class="cart__item">
       <div>
         <i
           (click)="quantityDown(item)"
@@ -32,10 +32,8 @@
       >
     </div>
   </div>
-  <p class="cart__empty-message" *ngIf="!items.getValue().length">
-    Your cart is empty!
-  </p>
-  <div *ngIf="items.getValue().length" class="cart__buttons">
+  <p class="cart__empty-message" *ngIf="!items.length">Your cart is empty!</p>
+  <div *ngIf="items.length" class="cart__buttons">
     <button (click)="clearCart()" type="button" class="cart__buttons__button">
       <i class="fa fa-trash"></i> Clear
     </button>

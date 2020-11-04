@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Subject } from "rxjs";
+import { BehaviorSubject, Subject, Observable } from "rxjs";
 import { CartItem } from "../models/cart-item";
 import { MenuItem } from "../models/menu-item";
 
@@ -9,13 +9,8 @@ import { MenuItem } from "../models/menu-item";
 export class ShoppingCartService {
   constructor() {}
 
-  private items: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>(
-    []
-  );
-
-  public getItems(): BehaviorSubject<CartItem[]> {
-    return this.items;
-  }
+  private itemsSource = new BehaviorSubject<CartItem[]>([]);
+  items$: Observable<CartItem[]> = this.itemsSource.asObservable();
 
   public quantityUp(item: CartItem): void {
     item.quantityUp();
@@ -25,10 +20,10 @@ export class ShoppingCartService {
     item.quantityDown();
   }
 
-  addItem(item: MenuItem) {
-    const foundItem = this.items
-      .getValue()
-      .find((c) => c.menuItem.id === item.id);
+  public addItem(item: MenuItem) {
+    const foundItem = this.itemsSource.value.find(
+      (c) => c.menuItem.id === item.id
+    );
 
     const expectations = [
       {
@@ -37,7 +32,7 @@ export class ShoppingCartService {
       },
       {
         expect: () => true,
-        action: () => this.items.getValue().push(new CartItem(item)),
+        action: () => this.itemsSource.value.push(new CartItem(item)),
       },
     ];
     const currentExpect = expectations.find((c) => c.expect());
@@ -45,18 +40,19 @@ export class ShoppingCartService {
   }
 
   public removeItem(item: CartItem) {
-    const items = this.items.getValue();
+    const items = this.itemsSource.value;
     items.splice(items.indexOf(item, 1));
-    this.items.next(items);
+    this.itemsSource.next(items);
   }
 
   public clear() {
-    this.items.next([]);
+    this.itemsSource.next([]);
   }
 
-  getTotal(): number {
-    return this.items
-      .getValue()
-      .reduce((acc, currentItem) => acc + currentItem.getTotalValue(), 0);
+  public getTotal(): number {
+    return this.itemsSource.value.reduce(
+      (acc, cur) => acc + cur.getTotalValue(),
+      0
+    );
   }
 }
