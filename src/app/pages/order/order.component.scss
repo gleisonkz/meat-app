@@ -127,17 +127,34 @@
       }
     }
 
-    &__payment-method {
-      legend {
-        @include form-title;
+    &__payment-and-total {
+      display: flex;
+
+      &__payment-method {
+        width: 50%;
+
+        legend {
+          @include form-title;
+        }
+
+        mat-radio-group {
+          display: flex;
+          flex-direction: column;
+
+          mat-radio-button + mat-radio-button {
+            margin-top: rem(3);
+          }
+        }
       }
 
-      mat-radio-group {
-        display: flex;
-        flex-direction: column;
+      .freight-and-total {
+        width: 50%;
 
-        mat-radio-button + mat-radio-button {
-          margin-top: rem(3);
+        &__title {
+          @include form-title;
+        }
+
+        .items-container {
         }
       }
     }

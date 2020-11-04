@@ -111,30 +111,34 @@
       </div>
     </div>
   </div>
-  <fieldset class="order__form__payment-method">
-    <legend>Payment Method:</legend>
-    <mat-radio-group>
-      <mat-radio-button value="1">Money</mat-radio-button>
-      <mat-radio-button value="2">Credit Card</mat-radio-button>
-      <mat-radio-button value="3">Meal Card</mat-radio-button>
-    </mat-radio-group>
-  </fieldset>
 
-  <div class="order__form__total">
-    <h2>Freight and Total:</h2>
-    <div>
-      <div>
-        <span>Items: </span>
-        <span>R$ 0,00</span>
-      </div>
-      <div>
-        <span>Freight:</span>
-        <span>R$ 0,00</span>
-      </div>
-      <div>
-        <span>Total:</span>
-        <span>R$ 0,00</span>
+  <div class="order__form__payment-and-total">
+    <fieldset class="order__form__payment-and-total__payment-method">
+      <legend>Payment Method:</legend>
+      <mat-radio-group>
+        <mat-radio-button value="1">Money</mat-radio-button>
+        <mat-radio-button value="2">Credit Card</mat-radio-button>
+        <mat-radio-button value="3">Meal Card</mat-radio-button>
+      </mat-radio-group>
+    </fieldset>
+
+    <div class="freight-and-total">
+      <h2 class="freight-and-total__title">Freight and Total:</h2>
+      <div class="items-container">
+        <div class="item">
+          <span class="item__text">Items: </span>
+          <span class="item__value">R$ 0,00</span>
+        </div>
+        <div class="item">
+          <span class="item__text">Freight: </span>
+          <span class="item__value">R$ 0,00</span>
+        </div>
+        <div class="item">
+          <span class="item__text">Total: </span>
+          <span class="item__value">R$ 0,00</span>
+        </div>
       </div>
     </div>
   </div>
+  <button>Submit Order</button>
 </form>

@@ -24,6 +24,7 @@
     flex: 1;
     position: relative;
     background-color: $color-background;
+    overflow: auto;
 
     &::ng-deep router-outlet.main ~ * {
       position: absolute;
