@@ -27,6 +27,8 @@
   }
 
   &__form {
+    font-size: rem(12.5);
+
     .form-legend {
       @include form-title;
     }
@@ -34,8 +36,19 @@
     .client-information {
       &__controls {
         display: flex;
+
+        mat-form-field {
+          margin-right: rem(15);
+        }
       }
     }
+
+    .delivery-address {
+      mat-form-field {
+        margin-right: rem(15);
+      }
+    }
+
     &__input {
       box-shadow: none;
       height: 34px;
@@ -52,6 +65,65 @@
       &:focus {
         border-color: #3c8dbc;
         box-shadow: none;
+      }
+    }
+
+    .order__items {
+      &__title {
+        @include form-title;
+      }
+
+      &__table {
+        &__header,
+        &__body {
+          display: grid;
+          grid-template-columns: rem(100) 1fr 2fr rem(100) rem(15);
+        }
+
+        &__header {
+          padding: rem(20);
+
+          &__item {
+            @include base-bold;
+          }
+        }
+
+        &__body {
+          &__item {
+            grid-template-columns: inherit;
+            display: inherit;
+            grid-column: 1/-1;
+            padding: rem(20);
+
+            &__quantity {
+              span {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: rem(20);
+                user-select: none;
+              }
+            }
+
+            span {
+              color: $color-text;
+            }
+
+            i {
+              color: $color-icon;
+              margin: rem(0 5);
+              cursor: pointer;
+            }
+
+            i.fa-remove {
+              color: $color-danger;
+            }
+          }
+
+          &__item:nth-child(odd) {
+            background-color: $color-tab-panel-border-top;
+          }
+        }
       }
     }
   }

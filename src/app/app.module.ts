@@ -49,7 +49,6 @@ registerLocaleData(ptBr);
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    MatInputModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: "pt-PT" }],
   bootstrap: [AppComponent],
