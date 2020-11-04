@@ -4,7 +4,7 @@
 
 :host {
   width: rem(1060) !important;
-  height: rem(645);
+
   padding: rem(30);
   margin-top: rem(20);
 
@@ -123,6 +123,21 @@
           &__item:nth-child(odd) {
             background-color: $color-tab-panel-border-top;
           }
+        }
+      }
+    }
+
+    &__payment-method {
+      legend {
+        @include form-title;
+      }
+
+      mat-radio-group {
+        display: flex;
+        flex-direction: column;
+
+        mat-radio-button + mat-radio-button {
+          margin-top: rem(3);
         }
       }
     }

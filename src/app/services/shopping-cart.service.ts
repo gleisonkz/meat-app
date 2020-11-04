@@ -29,6 +29,7 @@ export class ShoppingCartService {
     const foundItem = this.items
       .getValue()
       .find((c) => c.menuItem.id === item.id);
+
     const expectations = [
       {
         expect: () => foundItem !== undefined,
