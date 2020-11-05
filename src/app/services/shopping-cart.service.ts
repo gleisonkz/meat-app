@@ -11,13 +11,18 @@ export class ShoppingCartService {
 
   private itemsSource = new BehaviorSubject<CartItem[]>([]);
   items$: Observable<CartItem[]> = this.itemsSource.asObservable();
+  get existingCartItem() {
+    return !!this.itemsSource.value.length;
+  }
 
   public quantityUp(item: CartItem): void {
     item.quantityUp();
+    this.itemsSource.next([...this.itemsSource.value]);
   }
 
   public quantityDown(item: CartItem): void {
     item.quantityDown();
+    this.itemsSource.next([...this.itemsSource.value]);
   }
 
   public addItem(item: MenuItem) {
@@ -32,7 +37,11 @@ export class ShoppingCartService {
       },
       {
         expect: () => true,
-        action: () => this.itemsSource.value.push(new CartItem(item)),
+        action: () =>
+          this.itemsSource.next([
+            ...this.itemsSource.value,
+            new CartItem(item),
+          ]),
       },
     ];
     const currentExpect = expectations.find((c) => c.expect());
@@ -41,7 +50,7 @@ export class ShoppingCartService {
 
   public removeItem(item: CartItem) {
     const items = this.itemsSource.value;
-    items.splice(items.indexOf(item, 1));
+    items.splice(items.indexOf(item), 1);
     this.itemsSource.next(items);
   }
 

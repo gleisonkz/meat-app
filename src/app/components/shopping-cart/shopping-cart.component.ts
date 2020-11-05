@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { BehaviorSubject, Subscription } from "rxjs";
+import { BehaviorSubject, Subscription, Observable } from "rxjs";
 import { CartItem } from "src/app/models/cart-item";
 import { ShoppingCartService } from "src/app/services/shopping-cart.service";
 
@@ -9,18 +9,22 @@ import { ShoppingCartService } from "src/app/services/shopping-cart.service";
   styleUrls: ["./shopping-cart.component.scss"],
 })
 export class ShoppingCartComponent implements OnInit {
-  items: CartItem[];
-  subscription: Subscription;
+  items$: Observable<CartItem[]>;
+  subscription: Subscription[] = [];
+  get existingCartItem(): boolean {
+    return this.shoppingCartService.existingCartItem;
+  }
 
   constructor(private shoppingCartService: ShoppingCartService) {}
   ngOnInit() {
-    this.subscription = this.shoppingCartService.items$.subscribe(
-      (items) => (this.items = items)
-    );
+    this.items$ = this.shoppingCartService.items$;
+    // this.subscription = this.shoppingCartService.items$.subscribe(
+    //   (items) => (this.items = items)
+    // );
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription.forEach((c) => c.unsubscribe());
   }
 
   getTotal(): number {
