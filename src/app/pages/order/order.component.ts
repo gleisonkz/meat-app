@@ -1,25 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import {
   FormControl,
+  FormGroup,
   FormGroupDirective,
   NgForm,
   Validators,
 } from "@angular/forms";
-import { ErrorStateMatcher } from "@angular/material";
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(
-    control: FormControl | null,
-    form: FormGroupDirective | NgForm | null
-  ): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(
-      control &&
-      control.invalid &&
-      (control.dirty || control.touched || isSubmitted)
-    );
-  }
-}
 
 @Component({
   templateUrl: "./order.component.html",
@@ -29,12 +15,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class OrderComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  orderForm: FormGroup;
 
-  emailFormControl = new FormControl("", [
-    Validators.required,
-    Validators.email,
-  ]);
-
-  matcher = new MyErrorStateMatcher();
+  ngOnInit(): void {
+    this.orderForm = new FormGroup({
+      name: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      emailCheck: new FormControl("", [Validators.required, Validators.email]),
+      address: new FormControl("", [Validators.required]),
+      number: new FormControl("", [Validators.required]),
+      address2: new FormControl("", []),
+    });
+  }
 }

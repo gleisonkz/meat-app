@@ -5,7 +5,7 @@
 :host {
   width: rem(1060) !important;
 
-  padding: rem(30);
+  padding: rem(30 30 20 30);
   margin-top: rem(20);
 
   display: flex;
@@ -29,6 +29,20 @@
   &__form {
     font-size: rem(12.5);
 
+    mat-form-field {
+      margin-right: rem(15);
+
+      i {
+        position: absolute;
+        right: 0px;
+        top: 45px;
+        bottom: 0;
+        left: -6px;
+        font-size: rem(10);
+        color: $color-success;
+      }
+    }
+
     .form-legend {
       @include form-title;
     }
@@ -37,9 +51,19 @@
       &__controls {
         display: flex;
 
-        mat-form-field {
-          margin-right: rem(15);
-        }
+        // mat-form-field {
+        //   margin-right: rem(15);
+
+        //   i {
+        //     position: absolute;
+        //     right: 0px;
+        //     top: 45px;
+        //     bottom: 0;
+        //     left: -6px;
+        //     font-size: rem(10);
+        //     color: $color-success;
+        //   }
+        // }
       }
     }
 
@@ -129,6 +153,8 @@
 
     &__payment-and-total {
       display: flex;
+      margin-top: rem(20);
+      justify-content: space-between;
 
       &__payment-method {
         width: 50%;
@@ -141,6 +167,10 @@
           display: flex;
           flex-direction: column;
 
+          mat-radio-button {
+            color: $color-text;
+          }
+
           mat-radio-button + mat-radio-button {
             margin-top: rem(3);
           }
@@ -148,15 +178,43 @@
       }
 
       .freight-and-total {
-        width: 50%;
+        width: rem(500);
 
         &__title {
           @include form-title;
         }
 
         .items-container {
+          .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: rem(500);
+            font-size: rem(12);
+            color: $color-text;
+            padding: rem(10 0);
+            border-top: solid 1px $color-tab-panel-border-top;
+
+            &__text {
+              @include base-bold;
+            }
+          }
         }
       }
+    }
+
+    .order-button {
+      i {
+        margin-right: rem(10);
+      }
+
+      @include base-button-style;
+      background-color: $color-success;
+      font-size: rem(15);
+      width: initial;
+      margin: 10px 0 0 auto;
+
+      @include button-disabled;
     }
   }
 }

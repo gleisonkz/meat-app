@@ -2,38 +2,107 @@
   <i class="fa fa-shopping-cart"></i>
   Finish your order
 </h1>
-
-<form action="" class="order__form">
+{{ orderForm.valid }}
+<!-- {{ matInputField | json }} -->
+<!-- {{ orderFormRef | json }} -->
+<form
+  #orderFormRef
+  action=""
+  class="order__form"
+  novalidate
+  [formGroup]="orderForm"
+>
   <fieldset class="client-information">
     <legend class="form-legend">Client Information:</legend>
     <div class="client-information__controls">
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
-        <input type="text" matInput placeholder="Ex: Richard" />
+        <input
+          type="text"
+          formControlName="name"
+          matInput
+          placeholder="Ex: Richard"
+        />
+        <mat-error>
+          <span mtShowValidation="name"></span>
+        </mat-error>
+
+        <i *ngIf="orderForm.controls['name'].valid" class="fa fa-check"> OK</i>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
-        <mat-label>Email </mat-label>
-        <input type="text" matInput placeholder="Ex. pat@example.com" />
+        <mat-label>Email</mat-label>
+        <input
+          type="text"
+          formControlName="email"
+          matInput
+          placeholder="pat@example.com"
+        />
+        <mat-error>
+          <span mtShowValidation="email"></span>
+        </mat-error>
+
+        <i *ngIf="orderForm.controls['email'].valid" class="fa fa-check"> OK</i>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
         <mat-label>Email Check</mat-label>
-        <input type="text" matInput placeholder="Ex. pat@example.com" />
+        <input
+          type="text"
+          formControlName="emailCheck"
+          matInput
+          placeholder="pat@example.com"
+        />
+        <mat-error>
+          <span mtShowValidation="emailCheck"></span>
+        </mat-error>
+
+        <i *ngIf="orderForm.controls['emailCheck'].valid" class="fa fa-check">
+          OK</i
+        >
       </mat-form-field>
     </div>
   </fieldset>
   <fieldset class="delivery-address">
     <legend class="form-legend">Delivery Address:</legend>
+
     <mat-form-field appearance="outline">
       <mat-label>Address</mat-label>
-      <input type="text" matInput placeholder="Ex: Richard" />
+      <input
+        type="text"
+        formControlName="address"
+        matInput
+        placeholder="Main Street, New York, NY 10030"
+      />
+      <mat-error>
+        <span mtShowValidation="address"></span>
+      </mat-error>
+
+      <i *ngIf="orderForm.controls['address'].valid" class="fa fa-check"> OK</i>
     </mat-form-field>
+
     <mat-form-field appearance="outline">
-      <mat-label>Number </mat-label>
-      <input type="text" matInput placeholder="Ex. pat@example.com" />
+      <mat-label>Number</mat-label>
+      <input type="text" formControlName="number" matInput placeholder="123" />
+      <mat-error>
+        <span mtShowValidation="number"></span>
+      </mat-error>
+      <i *ngIf="orderForm.controls['number'].valid" class="fa fa-check"> OK</i>
     </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Address 2</mat-label>
-      <input type="text" matInput placeholder="Ex. pat@example.com" />
+      <input
+        type="text"
+        formControlName="address2"
+        matInput
+        placeholder="Main Street, New York, NY 10030"
+      />
+      <mat-error>
+        <span mtShowValidation="address2"></span>
+      </mat-error>
+
+      <i *ngIf="orderForm.controls['address2'].valid" class="fa fa-check">OK</i>
     </mat-form-field>
   </fieldset>
   <div class="order__items">
@@ -140,5 +209,8 @@
       </div>
     </div>
   </div>
-  <button>Submit Order</button>
+  <button [disabled]="!orderForm.valid" class="order-button">
+    <i class="fa fa-credit-card"></i>
+    Submit Order
+  </button>
 </form>

@@ -10,6 +10,23 @@
   height: rem($height);
 }
 
+@mixin base-button-style {
+  @include flex-center;
+  width: rem(180);
+  height: rem(40);
+
+  padding: 15px;
+  border-radius: 5px;
+
+  user-select: none;
+
+  color: $color-panel-button-text;
+  background-color: $color-panel-button-bg;
+  transition: background-color 0.2s;
+
+  @include button-pressed;
+}
+
 @mixin base-border-bottom() {
   border-bottom: 0.1px solid $color-tab-panel-border-top;
 }
@@ -34,6 +51,14 @@
 
   &:active {
     transform: scale(0.98);
+  }
+}
+
+@mixin button-disabled {
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: rgb(229, 229, 229) !important;
+    pointer-events: none;
   }
 }
 

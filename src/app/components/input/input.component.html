@@ -1,0 +1,14 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    type="text"
+    matInput
+    [formControlName]="formControlName"
+    [placeholder]="placeHolder"
+  />
+  <mat-error>
+    <span mtShowValidation="{{ formControlName }}"></span>
+  </mat-error>
+
+  <i *ngIf="isValid" class="fa fa-check"> OK</i>
+</mat-form-field>

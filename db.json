@@ -370,5 +370,17 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "name": "ddfsdd",
+      "email": "",
+      "emailConfirmation": "",
+      "address": "",
+      "number": "",
+      "optionalAddress": "",
+      "paymentOption": "",
+      "orderItems": [],
+      "id": 1
+    }
+  ]
 }

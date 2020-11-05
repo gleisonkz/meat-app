@@ -23,6 +23,11 @@ import { registerLocaleData } from "@angular/common";
 import { OrderComponent } from "./pages/order/order.component";
 import { MaterialModule } from "./modules/material/material.module";
 import { MatInputModule } from "@angular/material/input";
+import { ReactiveFormsModule } from "@angular/forms";
+import { ShowValidationDirective } from "./directives/show-validation.directive";
+import { ErrorStateMatcher } from "@angular/material/core";
+import { CustomErrorStateMatcher } from "./shared/classes/custom-error-state-matcher";
+import { InputComponent } from './components/input/input.component';
 registerLocaleData(ptBr);
 
 @NgModule({
@@ -42,6 +47,8 @@ registerLocaleData(ptBr);
     RestaurantRatingComponent,
     ReviewsComponent,
     OrderComponent,
+    ShowValidationDirective,
+    InputComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +56,12 @@ registerLocaleData(ptBr);
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    ReactiveFormsModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "pt-PT" }],
+  providers: [
+    { provide: LOCALE_ID, useValue: "pt-PT" },
+    { provide: ErrorStateMatcher, useValue: new CustomErrorStateMatcher() },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
