@@ -115,7 +115,8 @@
         <span class="order__items__table__header__item">Subtotal</span>
       </div>
       <div class="order__items__table__body">
-        <div class="order__items__table__body__item">
+        <mt-order-item *ngFor="let item of orderItems$ | async"></mt-order-item>
+        <!-- <div class="order__items__table__body__item">
           <span class="order__items__table__body__item__quantity">
             <i class="fas fa-minus"></i>
             <span>01</span>
@@ -176,7 +177,7 @@
             >R$ 1.280,50
           </span>
           <i class="fa fa-remove cart__item__icon"></i>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

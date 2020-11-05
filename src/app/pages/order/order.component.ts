@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CartItem } from "../../models/cart-item";
 import {
   FormArray,
   FormControl,
@@ -7,6 +8,8 @@ import {
   NgForm,
   Validators,
 } from "@angular/forms";
+import { Observable } from "rxjs";
+import { ShoppingCartService } from "../../services/shopping-cart.service";
 
 @Component({
   templateUrl: "./order.component.html",
@@ -14,9 +17,10 @@ import {
   host: { class: "order" },
 })
 export class OrderComponent implements OnInit {
-  constructor() {}
+  constructor(private cartService: ShoppingCartService) {}
 
   orderForm: FormGroup;
+  orderItems$: Observable<CartItem[]>;
 
   ngOnInit(): void {
     this.orderForm = new FormGroup({
@@ -28,5 +32,7 @@ export class OrderComponent implements OnInit {
       address2: new FormControl("", []),
       paymentMethod: new FormControl("", [Validators.required]),
     });
+
+    this.orderItems$ = this.cartService.items$;
   }
 }

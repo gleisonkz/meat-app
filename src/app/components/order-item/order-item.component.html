@@ -1,0 +1,11 @@
+<div class="order__item">
+  <span class="order__item__quantity">
+    <i class="fas fa-minus"></i>
+    <span>{{ item.quantity }}</span>
+    <i class="fas fa-plus"></i>
+  </span>
+  <span class="order__item__name">{{ item.menuItem.name }}</span>
+  <span class="order__item__description">{{ item.menuItem.description }}</span>
+  <span class="order__item__price">{{ item.getTotalValue() }}</span>
+  <i class="fa fa-remove cart__item__icon"></i>
+</div>
