@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {
+  FormArray,
   FormControl,
   FormGroup,
   FormGroupDirective,
@@ -25,6 +26,7 @@ export class OrderComponent implements OnInit {
       address: new FormControl("", [Validators.required]),
       number: new FormControl("", [Validators.required]),
       address2: new FormControl("", []),
+      paymentMethod: new FormControl("", [Validators.required]),
     });
   }
 }
