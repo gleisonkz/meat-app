@@ -29,6 +29,7 @@ import { ErrorStateMatcher } from "@angular/material/core";
 import { CustomErrorStateMatcher } from "./shared/classes/custom-error-state-matcher";
 import { InputComponent } from './components/input/input.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
+import { DeliveryCostsComponent } from './components/delivery-costs/delivery-costs.component';
 registerLocaleData(ptBr);
 
 @NgModule({
@@ -51,6 +52,7 @@ registerLocaleData(ptBr);
     ShowValidationDirective,
     InputComponent,
     OrderItemComponent,
+    DeliveryCostsComponent,
   ],
   imports: [
     BrowserModule,

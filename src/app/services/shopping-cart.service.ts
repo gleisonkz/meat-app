@@ -27,13 +27,13 @@ export class ShoppingCartService {
 
   public addItem(item: MenuItem) {
     const foundItem = this.itemsSource.value.find(
-      (c) => c.menuItem.id === item.id
+      c => c.menuItem.id === item.id
     );
 
     const expectations = [
       {
         expect: () => foundItem !== undefined,
-        action: () => foundItem.quantity++,
+        action: () => this.quantityUp(foundItem),
       },
       {
         expect: () => true,
@@ -44,7 +44,7 @@ export class ShoppingCartService {
           ]),
       },
     ];
-    const currentExpect = expectations.find((c) => c.expect());
+    const currentExpect = expectations.find(c => c.expect());
     currentExpect.action();
   }
 
