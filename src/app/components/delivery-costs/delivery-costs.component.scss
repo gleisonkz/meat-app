@@ -1,0 +1,28 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+@import "../../../sass/functions";
+
+.freight-and-total {
+  width: rem(500);
+
+  &__title {
+    @include form-title;
+  }
+
+  .items-container {
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: rem(500);
+      font-size: rem(12);
+      color: $color-text;
+      padding: rem(10 0);
+      border-top: solid 1px $color-tab-panel-border-top;
+
+      &__text {
+        @include base-bold;
+      }
+    }
+  }
+}

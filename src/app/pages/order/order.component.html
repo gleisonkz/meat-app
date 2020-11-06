@@ -2,9 +2,7 @@
   <i class="fa fa-shopping-cart"></i>
   Finish your order
 </h1>
-{{ orderForm.valid }}
-<!-- {{ matInputField | json }} -->
-<!-- {{ orderFormRef | json }} -->
+
 <form
   #orderFormRef
   action=""
@@ -138,7 +136,13 @@
       </mat-radio-group>
     </fieldset>
 
-    <div class="freight-and-total">
+    <mt-delivery-costs
+      [deliveryCost]="deliveryCost"
+      [totalItems]="getTotalItems()"
+      [totalOrder]="getTotalOrder()"
+    ></mt-delivery-costs>
+
+    <!-- <div class="freight-and-total">
       <h2 class="freight-and-total__title">Freight and Total:</h2>
       <div class="items-container">
         <div class="item">
@@ -158,7 +162,7 @@
           >
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <button
     [disabled]="!orderForm.valid || !existingCartItem"

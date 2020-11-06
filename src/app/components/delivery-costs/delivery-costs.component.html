@@ -1,1 +1,17 @@
-<p>delivery-costs works!</p>
+<div class="freight-and-total">
+  <h2 class="freight-and-total__title">Freight and Total:</h2>
+  <div class="items-container">
+    <div class="item">
+      <span class="item__text">Items: </span>
+      <span class="item__value">R$ {{ totalItems | number: "2.2" }}</span>
+    </div>
+    <div class="item">
+      <span class="item__text">Freight: </span>
+      <span class="item__value">R$ {{ deliveryCost | number: "2.2" }}</span>
+    </div>
+    <div class="item">
+      <span class="item__text">Total: </span>
+      <span class="item__value">R$ {{ totalOrder | number: "2.2" }}</span>
+    </div>
+  </div>
+</div>
