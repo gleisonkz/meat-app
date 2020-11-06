@@ -20,7 +20,7 @@ import { OrderService } from "../../services/order.service";
 export class OrderComponent implements OnInit {
   public orderForm: FormGroup;
   public orderItems$: Observable<CartItem[]>;
-  public get hasItemsInCart() {
+  public get existingCartItem() {
     return this.cartService.existingCartItem;
   }
   public deliveryCost: number = 8.0;

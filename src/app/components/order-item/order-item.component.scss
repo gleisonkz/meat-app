@@ -12,7 +12,6 @@
     grid-template-columns: inherit;
     display: inherit;
     grid-column: inherit;
-    // padding: rem(20);
 
     &__quantity {
       span {
@@ -39,7 +38,3 @@
     }
   }
 }
-
-// &__item:nth-child(odd) {
-//   background-color: $color-tab-panel-border-top;
-// }

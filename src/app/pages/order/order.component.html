@@ -107,7 +107,7 @@
   </fieldset>
   <div class="order__items">
     <h2 class="order__items__title">Order Items</h2>
-    <div class="order__items__table">
+    <div class="order__items__table" *ngIf="existingCartItem">
       <div class="order__items__table__header">
         <span class="order__items__table__header__item">Quantity</span>
         <span class="order__items__table__header__item">Item</span>
@@ -121,6 +121,11 @@
         ></mt-order-item>
       </div>
     </div>
+    <p class="empty-message" *ngIf="!existingCartItem">
+      Your cart is empty, what about start by taking a look
+      <a class="empty-message__link" [routerLink]="['/restaurants']">here</a>
+      ?
+    </p>
   </div>
 
   <div class="order__form__payment-and-total">
@@ -155,7 +160,10 @@
       </div>
     </div>
   </div>
-  <button [disabled]="!orderForm.valid && hasItemsInCart" class="order-button">
+  <button
+    [disabled]="!orderForm.valid || !existingCartItem"
+    class="order-button"
+  >
     <i class="fa fa-credit-card"></i>
     Submit Order
   </button>
