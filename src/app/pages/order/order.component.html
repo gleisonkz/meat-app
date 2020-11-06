@@ -115,69 +115,10 @@
         <span class="order__items__table__header__item">Subtotal</span>
       </div>
       <div class="order__items__table__body">
-        <mt-order-item *ngFor="let item of orderItems$ | async"></mt-order-item>
-        <!-- <div class="order__items__table__body__item">
-          <span class="order__items__table__body__item__quantity">
-            <i class="fas fa-minus"></i>
-            <span>01</span>
-            <i class="fas fa-plus"></i>
-          </span>
-          <span class="order__items__table__body__item__name"
-            >Picolé de Brigadeiro</span
-          >
-          <span class="order__items__table__body__item__description"
-            >Picolé de brigadeiro recheado com côco.</span
-          >
-          <span class="order__items__table__body__item__price">R$ 8,50 </span>
-          <i class="fa fa-remove cart__item__icon"></i>
-        </div>
-        <div class="order__items__table__body__item">
-          <span class="order__items__table__body__item__quantity">
-            <i class="fas fa-minus"></i>
-            <span>100</span>
-            <i class="fas fa-plus"></i>
-          </span>
-          <span class="order__items__table__body__item__name"
-            >Picolé de Brigadeiro</span
-          >
-          <span class="order__items__table__body__item__description"
-            >Picolé de brigadeiro recheado com côco.</span
-          >
-          <span class="order__items__table__body__item__price">R$ 28,50 </span>
-          <i class="fa fa-remove cart__item__icon"></i>
-        </div>
-        <div class="order__items__table__body__item">
-          <span class="order__items__table__body__item__quantity">
-            <i class="fas fa-minus"></i>
-            <span>01</span>
-            <i class="fas fa-plus"></i>
-          </span>
-          <span class="order__items__table__body__item__name"
-            >Picolé de Brigadeiro</span
-          >
-          <span class="order__items__table__body__item__description"
-            >Picolé de brigadeiro recheado com côco.</span
-          >
-          <span class="order__items__table__body__item__price">R$ 358,50 </span>
-          <i class="fa fa-remove cart__item__icon"></i>
-        </div>
-        <div class="order__items__table__body__item">
-          <span class="order__items__table__body__item__quantity">
-            <i class="fas fa-minus"></i>
-            <span>55</span>
-            <i class="fas fa-plus"></i>
-          </span>
-          <span class="order__items__table__body__item__name"
-            >Picolé de Brigadeiro</span
-          >
-          <span class="order__items__table__body__item__description"
-            >Picolé de brigadeiro recheado com côco.</span
-          >
-          <span class="order__items__table__body__item__price"
-            >R$ 1.280,50
-          </span>
-          <i class="fa fa-remove cart__item__icon"></i>
-        </div> -->
+        <mt-order-item
+          [item]="item"
+          *ngFor="let item of orderItems$ | async"
+        ></mt-order-item>
       </div>
     </div>
   </div>
@@ -197,20 +138,24 @@
       <div class="items-container">
         <div class="item">
           <span class="item__text">Items: </span>
-          <span class="item__value">R$ 0,00</span>
+          <span class="item__value"
+            >R$ {{ getTotalItems() | number: "2.2" }}</span
+          >
         </div>
         <div class="item">
           <span class="item__text">Freight: </span>
-          <span class="item__value">R$ 0,00</span>
+          <span class="item__value">R$ {{ deliveryCost | number: "2.2" }}</span>
         </div>
         <div class="item">
           <span class="item__text">Total: </span>
-          <span class="item__value">R$ 0,00</span>
+          <span class="item__value"
+            >R$ {{ getTotalOrder() | number: "2.2" }}</span
+          >
         </div>
       </div>
     </div>
   </div>
-  <button [disabled]="!orderForm.valid" class="order-button">
+  <button [disabled]="!orderForm.valid && orderItems$." class="order-button">
     <i class="fa fa-credit-card"></i>
     Submit Order
   </button>

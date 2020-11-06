@@ -10,6 +10,7 @@ import {
 } from "@angular/forms";
 import { Observable } from "rxjs";
 import { ShoppingCartService } from "../../services/shopping-cart.service";
+import { OrderService } from "../../services/order.service";
 
 @Component({
   templateUrl: "./order.component.html",
@@ -17,10 +18,17 @@ import { ShoppingCartService } from "../../services/shopping-cart.service";
   host: { class: "order" },
 })
 export class OrderComponent implements OnInit {
-  constructor(private cartService: ShoppingCartService) {}
+  public orderForm: FormGroup;
+  public orderItems$: Observable<CartItem[]>;
+  public get hasItemsInCart() {
+    return true;
+  }
+  public deliveryCost: number = 8.0;
 
-  orderForm: FormGroup;
-  orderItems$: Observable<CartItem[]>;
+  constructor(
+    private cartService: ShoppingCartService,
+    private orderService: OrderService
+  ) {}
 
   ngOnInit(): void {
     this.orderForm = new FormGroup({
@@ -34,5 +42,13 @@ export class OrderComponent implements OnInit {
     });
 
     this.orderItems$ = this.cartService.items$;
+  }
+
+  getTotalItems(): number {
+    return this.orderService.getTotalValue();
+  }
+
+  getTotalOrder(): number {
+    return this.getTotalItems() + this.deliveryCost;
   }
 }
