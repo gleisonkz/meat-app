@@ -47,10 +47,8 @@ export class ShowValidationDirective implements AfterContentInit, OnDestroy {
   }
 
   private checkValidations(control: AbstractControl): string {
-    console.log(control);
-
     return (
-      ArrayValidation.find(c => control.hasError(c.key)).value(control) || ""
+      ArrayValidation.find(c => control.hasError(c.key))?.value(control) || ""
     );
   }
 }

@@ -10,7 +10,10 @@ export class DeliveryCostsComponent implements OnInit {
 
   @Input() totalItems: number;
   @Input() deliveryCost: number;
-  @Input() totalOrder: number;
 
   ngOnInit(): void {}
+
+  getTotalOrder(): number {
+    return this.totalItems + this.deliveryCost;
+  }
 }

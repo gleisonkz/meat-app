@@ -15,9 +15,6 @@ export class OrderItemComponent implements OnInit {
   ngOnInit(): void {}
 
   quantityUp(item: CartItem): void {
-    console.log("UP");
-    console.log(item);
-
     this.orderService.quantityUp(item);
   }
 

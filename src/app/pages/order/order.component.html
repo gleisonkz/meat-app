@@ -100,7 +100,7 @@
         <span mtShowValidation="address2"></span>
       </mat-error>
 
-      <i *ngIf="orderForm.controls['address2'].valid" class="fa fa-check">OK</i>
+      <i *ngIf="orderForm.controls['address'].valid" class="fa fa-check">OK</i>
     </mat-form-field>
   </fieldset>
   <div class="order__items">
@@ -139,34 +139,12 @@
     <mt-delivery-costs
       [deliveryCost]="deliveryCost"
       [totalItems]="getTotalItems()"
-      [totalOrder]="getTotalOrder()"
     ></mt-delivery-costs>
-
-    <!-- <div class="freight-and-total">
-      <h2 class="freight-and-total__title">Freight and Total:</h2>
-      <div class="items-container">
-        <div class="item">
-          <span class="item__text">Items: </span>
-          <span class="item__value"
-            >R$ {{ getTotalItems() | number: "2.2" }}</span
-          >
-        </div>
-        <div class="item">
-          <span class="item__text">Freight: </span>
-          <span class="item__value">R$ {{ deliveryCost | number: "2.2" }}</span>
-        </div>
-        <div class="item">
-          <span class="item__text">Total: </span>
-          <span class="item__value"
-            >R$ {{ getTotalOrder() | number: "2.2" }}</span
-          >
-        </div>
-      </div>
-    </div> -->
   </div>
   <button
     [disabled]="!orderForm.valid || !existingCartItem"
     class="order-button"
+    (click)="submitOrder(orderForm.value)"
   >
     <i class="fa fa-credit-card"></i>
     Submit Order

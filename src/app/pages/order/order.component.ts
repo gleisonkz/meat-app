@@ -1,13 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CartItem } from "../../models/cart-item";
-import {
-  FormArray,
-  FormControl,
-  FormGroup,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Observable } from "rxjs";
 import { ShoppingCartService } from "../../services/shopping-cart.service";
 import { OrderService } from "../../services/order.service";
@@ -48,7 +41,7 @@ export class OrderComponent implements OnInit {
     return this.orderService.getTotalValue();
   }
 
-  getTotalOrder(): number {
-    return this.getTotalItems() + this.deliveryCost;
+  submitOrder(order: any): void {
+    console.log(order);
   }
 }
