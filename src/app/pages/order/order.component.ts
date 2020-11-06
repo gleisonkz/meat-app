@@ -21,7 +21,7 @@ export class OrderComponent implements OnInit {
   public orderForm: FormGroup;
   public orderItems$: Observable<CartItem[]>;
   public get hasItemsInCart() {
-    return true;
+    return this.cartService.existingCartItem;
   }
   public deliveryCost: number = 8.0;
 

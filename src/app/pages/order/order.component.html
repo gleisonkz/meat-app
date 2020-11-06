@@ -155,7 +155,7 @@
       </div>
     </div>
   </div>
-  <button [disabled]="!orderForm.valid && orderItems$." class="order-button">
+  <button [disabled]="!orderForm.valid && hasItemsInCart" class="order-button">
     <i class="fa fa-credit-card"></i>
     Submit Order
   </button>
