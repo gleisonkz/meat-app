@@ -6,7 +6,7 @@
 }
 
 @mixin size($width, $height: $width) {
-  width: rem($width);
+  width: rem($width) !important;
   height: rem($height);
 }
 

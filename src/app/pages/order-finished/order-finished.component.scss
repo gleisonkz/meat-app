@@ -1,0 +1,40 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+@import "../../../sass/functions";
+
+:host {
+  margin-top: rem(40);
+  background-color: $color-panel-bg;
+  @include size(700, 350);
+  padding: rem(50);
+  border-radius: $global-radius;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: $color-text;
+
+  .title {
+    font-size: rem(40);
+  }
+  .description {
+    text-align: center;
+    margin-top: rem(20);
+    font-size: rem(21);
+  }
+  .rating {
+    .rating-title {
+      font-size: rem(21);
+    }
+    margin-top: rem(20);
+    @include flex-center;
+    flex-direction: column;
+
+    .rating-indicator {
+      font-size: rem(25);
+      margin-top: rem(20);
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { RestaurantDetailComponent } from "./pages/restaurant-detail/restaurant-
 import { MenuComponent } from "./components/menu/menu.component";
 import { ReviewsComponent } from "./components/reviews/reviews.component";
 import { OrderComponent } from "./pages/order/order.component";
+import { OrderFinishedComponent } from "./pages/order-finished/order-finished.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   },
   { path: "about", component: AboutComponent },
   { path: "order", component: OrderComponent },
+  { path: "order-finished", component: OrderFinishedComponent },
 ];
 
 @NgModule({

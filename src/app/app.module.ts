@@ -30,6 +30,7 @@ import { CustomErrorStateMatcher } from "./shared/classes/custom-error-state-mat
 import { InputComponent } from './components/input/input.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
 import { DeliveryCostsComponent } from './components/delivery-costs/delivery-costs.component';
+import { OrderFinishedComponent } from './pages/order-finished/order-finished.component';
 registerLocaleData(ptBr);
 
 @NgModule({
@@ -53,6 +54,7 @@ registerLocaleData(ptBr);
     InputComponent,
     OrderItemComponent,
     DeliveryCostsComponent,
+    OrderFinishedComponent,
   ],
   imports: [
     BrowserModule,
