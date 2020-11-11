@@ -72,7 +72,10 @@ export class OrderComponent implements OnInit {
 
   submitOrder(order: Order): void {
     order.orderItems = this.getOrderItems();
-    console.log(order);
+    this.orderService
+      .postOrder(order)
+      .subscribe(c => console.log("request: ", c));
+
     this.router.navigate(["/order-finished"]);
   }
 }
