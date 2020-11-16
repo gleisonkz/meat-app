@@ -31,6 +31,7 @@ import { InputComponent } from './components/input/input.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
 import { DeliveryCostsComponent } from './components/delivery-costs/delivery-costs.component';
 import { OrderFinishedComponent } from './pages/order-finished/order-finished.component';
+import { RatingComponent } from './components/rating/rating.component';
 registerLocaleData(ptBr);
 
 @NgModule({
@@ -55,6 +56,7 @@ registerLocaleData(ptBr);
     OrderItemComponent,
     DeliveryCostsComponent,
     OrderFinishedComponent,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,

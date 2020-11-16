@@ -24,17 +24,21 @@
     margin-top: rem(20);
     font-size: rem(21);
   }
-  .rating {
-    .rating-title {
-      font-size: rem(21);
-    }
-    margin-top: rem(20);
-    @include flex-center;
-    flex-direction: column;
 
-    .rating-indicator {
-      font-size: rem(25);
-      margin-top: rem(20);
-    }
+  .info-rating {
+    margin-top: rem(10);
   }
+  // .rating {
+  //   .rating-title {
+  //     font-size: rem(21);
+  //   }
+  //   margin-top: rem(20);
+  //   @include flex-center;
+  //   flex-direction: column;
+
+  //   .rating-indicator {
+  //     font-size: rem(25);
+  //     margin-top: rem(20);
+  //   }
+  // }
 }

@@ -1,15 +1,8 @@
-<h1 class="title">Order Finished</h1>
+<!-- <h1 class="title">Compra Finalizada! Nº {{ state$ | async  }}</h1> -->
+<h1 class="title">Compra Finalizada!</h1>
 <p class="description">
-  Your order was received by the restaurant. Prepare the table that the food is
-  coming!
+  O seu pedido foi recebido pelo restaurante. Prepare a mesa que a comida está a
+  caminho!
 </p>
-<div class="rating">
-  <span class="rating-title"><strong>Rate</strong> you experience</span>
-  <div class="rating-indicator">
-    <i class="fas fa-star"></i>
-    <i class="far fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="far fa-star"></i>
-    <i class="far fa-star"></i>
-  </div>
-</div>
+<mt-rating (rated)="rated = true"></mt-rating>
+<p class="info-rating" [hidden]="!rated">Obrigado pela sua avaliação</p>

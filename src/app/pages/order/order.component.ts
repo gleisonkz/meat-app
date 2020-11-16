@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { CartItem } from "../../models/cart-item";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 import { Observable, Subscription } from "rxjs";
 import { ShoppingCartService } from "../../services/shopping-cart.service";
 import { OrderService } from "../../services/order.service";
@@ -25,31 +30,55 @@ export class OrderComponent implements OnInit {
   constructor(
     private router: Router,
     private cartService: ShoppingCartService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private builder: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.orderForm = new FormGroup({
-      name: new FormControl("gleison", [
+    this.orderForm = this.builder.group({
+      name: this.builder.control("gleison", [
         Validators.required,
         Validators.minLength(5),
       ]),
-      email: new FormControl("gleison@test.com", [
+      email: this.builder.control("gleison@test.com", [
         Validators.required,
         Validators.email,
       ]),
-      emailCheck: new FormControl("gleison@test.com", [
+      emailCheck: this.builder.control("gleison@test.com", [
         Validators.required,
         Validators.email,
       ]),
-      address: new FormControl("street D", [Validators.required]),
-      number: new FormControl("07", [Validators.required]),
-      address2: new FormControl("block 105", []),
-      paymentMethod: new FormControl("1", [Validators.required]),
+      address: this.builder.control("street D", [Validators.required]),
+      number: this.builder.control("07", [Validators.required]),
+      address2: this.builder.control("block 105", []),
+      paymentMethod: this.builder.control("1", [Validators.required]),
     });
 
     this.orderItems$ = this.cartService.items$;
   }
+
+  // ngOnInit(): void {
+  //   this.orderForm = new FormGroup({
+  //     name: new FormControl("gleison", [
+  //       Validators.required,
+  //       Validators.minLength(5),
+  //     ]),
+  //     email: new FormControl("gleison@test.com", [
+  //       Validators.required,
+  //       Validators.email,
+  //     ]),
+  //     emailCheck: new FormControl("gleison@test.com", [
+  //       Validators.required,
+  //       Validators.email,
+  //     ]),
+  //     address: new FormControl("street D", [Validators.required]),
+  //     number: new FormControl("07", [Validators.required]),
+  //     address2: new FormControl("block 105", []),
+  //     paymentMethod: new FormControl("1", [Validators.required]),
+  //   });
+
+  //   this.orderItems$ = this.cartService.items$;
+  // }
 
   getTotalItems(): number {
     return this.orderService.getTotalValue();
@@ -71,11 +100,19 @@ export class OrderComponent implements OnInit {
   }
 
   submitOrder(order: Order): void {
+    let orderID;
     order.orderItems = this.getOrderItems();
-    this.orderService
-      .postOrder(order)
-      .subscribe(c => console.log("request: ", c));
+    this.orderService.postOrder(order).subscribe(c => {
+      console.log(`Compra efetuada com sucesso! numero do pedido:${c.id}`);
+      orderID = c.id;
+      console.log(orderID);
 
+      // this.orderService.clear();
+    });
+
+    // this.router.navigate(["/order-finished"], {
+    //   state: orderID,
+    // });
     this.router.navigate(["/order-finished"]);
   }
 }
