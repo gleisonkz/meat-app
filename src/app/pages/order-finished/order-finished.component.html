@@ -1,8 +1,8 @@
-<!-- <h1 class="title">Compra Finalizada! Nº {{ state$ | async  }}</h1> -->
-<h1 class="title">Compra Finalizada!</h1>
+<h1 class="title">Compra Finalizada! Nº {{ orderID }}</h1>
+<!-- <h1 class="title">Compra Finalizada!</h1> -->
 <p class="description">
   O seu pedido foi recebido pelo restaurante. Prepare a mesa que a comida está a
   caminho!
 </p>
-<mt-rating (rated)="rated = true"></mt-rating>
+<mt-rating (rated)="finishOrder()"></mt-rating>
 <p class="info-rating" [hidden]="!rated">Obrigado pela sua avaliação</p>

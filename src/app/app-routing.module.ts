@@ -2,12 +2,12 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { RestaurantsComponent } from "./pages/restaurants/restaurants.component";
 import { HomeComponent } from "./pages/home/home.component";
-import { AboutComponent } from "./pages/about/about.component";
 import { RestaurantDetailComponent } from "./pages/restaurant-detail/restaurant-detail.component";
 import { MenuComponent } from "./components/menu/menu.component";
 import { ReviewsComponent } from "./components/reviews/reviews.component";
 import { OrderComponent } from "./pages/order/order.component";
 import { OrderFinishedComponent } from "./pages/order-finished/order-finished.component";
+import { OrderGuard } from "./guards/order.guard";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -21,9 +21,17 @@ const routes: Routes = [
       { path: "reviews", component: ReviewsComponent },
     ],
   },
-  { path: "about", component: AboutComponent },
+  {
+    path: "about",
+    loadChildren: () =>
+      import("./modules/about/about.module").then(m => m.AboutModule),
+  },
   { path: "order", component: OrderComponent },
-  { path: "order-finished", component: OrderFinishedComponent },
+  {
+    path: "order-finished",
+    component: OrderFinishedComponent,
+    canActivate: [OrderGuard],
+  },
 ];
 
 @NgModule({

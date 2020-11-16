@@ -9,7 +9,6 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { ToggleThemeComponent } from "./components/toggle-theme/toggle-theme.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { RestaurantsComponent } from "./pages/restaurants/restaurants.component";
-import { AboutComponent } from "./pages/about/about.component";
 import { RestaurantComponent } from "./components/restaurant/restaurant.component";
 import { HttpClientModule } from "@angular/common/http";
 import { RestaurantDetailComponent } from "./pages/restaurant-detail/restaurant-detail.component";
@@ -27,11 +26,12 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { ShowValidationDirective } from "./directives/show-validation.directive";
 import { ErrorStateMatcher } from "@angular/material/core";
 import { CustomErrorStateMatcher } from "./shared/classes/custom-error-state-matcher";
-import { InputComponent } from './components/input/input.component';
-import { OrderItemComponent } from './components/order-item/order-item.component';
-import { DeliveryCostsComponent } from './components/delivery-costs/delivery-costs.component';
-import { OrderFinishedComponent } from './pages/order-finished/order-finished.component';
-import { RatingComponent } from './components/rating/rating.component';
+import { InputComponent } from "./components/input/input.component";
+import { OrderItemComponent } from "./components/order-item/order-item.component";
+import { DeliveryCostsComponent } from "./components/delivery-costs/delivery-costs.component";
+import { OrderFinishedComponent } from "./pages/order-finished/order-finished.component";
+import { RatingComponent } from "./components/rating/rating.component";
+import { OrderGuard } from "./guards/order.guard";
 registerLocaleData(ptBr);
 
 @NgModule({
@@ -39,7 +39,6 @@ registerLocaleData(ptBr);
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AboutComponent,
     ToggleThemeComponent,
     HomeComponent,
     RestaurantsComponent,
@@ -69,6 +68,7 @@ registerLocaleData(ptBr);
   providers: [
     { provide: LOCALE_ID, useValue: "pt-PT" },
     { provide: ErrorStateMatcher, useValue: new CustomErrorStateMatcher() },
+    OrderGuard,
   ],
   bootstrap: [AppComponent],
 })

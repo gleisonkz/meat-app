@@ -1,14 +1,18 @@
 <mat-form-field appearance="outline">
   <mat-label>{{ label }}</mat-label>
-  <input
-    type="text"
-    matInput
-    [formControlName]="formControlName"
-    [placeholder]="placeHolder"
-  />
-  <mat-error>
-    <span mtShowValidation="{{ formControlName }}"></span>
-  </mat-error>
+  <!-- <input type="text" matInput [placeholder]="placeHolder" /> -->
 
-  <i *ngIf="isValid" class="fa fa-check"> OK</i>
+  <ng-content></ng-content>
+  <!-- <mat-error>
+    <span mtShowValidation="{{ formControlName }}"></span>
+  </mat-error> -->
+
+  <!-- <i *ngIf="isValid" class="fa fa-check"> OK</i> -->
+
+  <span class="help-block" *ngIf="hasSuccess()"
+    ><i class="fa fa-check"></i> Ok</span
+  >
+  <span class="help-block" *ngIf="hasError()"
+    ><i class="fa fa-remove"></i> {{ "errorMessage" }}</span
+  >
 </mat-form-field>

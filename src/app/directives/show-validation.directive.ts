@@ -33,7 +33,10 @@ export class ShowValidationDirective implements AfterContentInit, OnDestroy {
     this.subscriptions.push(
       control.statusChanges.subscribe(c => {
         const errorMessage = this.checkValidations(control);
-        this.setInnerHTML(errorMessage);
+        const errorMessageParent = this.checkValidations(group);
+        const error = errorMessage || errorMessageParent;
+        console.log(error);
+        this.setInnerHTML(error);
       })
     );
   }
@@ -54,23 +57,22 @@ export class ShowValidationDirective implements AfterContentInit, OnDestroy {
 }
 
 export const ArrayValidation = [
-  // {
-  //   key: "required",
-  //   value: (control: AbstractControl) => {
-  //     const formGroup = control.parent.controls;
-  //     const controlName = Object.keys(formGroup).find(
-  //       name => control === formGroup[name]
-  //     );
-  //     return `${controlName} <strong>is required</strong>`;
-  //   },
-  // },
   {
     key: "required",
-    value: (control: AbstractControl) =>
-      "this field is <strong>required</strong>",
+    value: (control: AbstractControl) => "campo<strong> obrigatório</strong>",
+  },
+  {
+    key: "email",
+    value: (control: AbstractControl) => "email<strong> inválido</strong>",
   },
   {
     key: "minlength",
-    value: (control: AbstractControl) => "min of <strong>5 characters</strong>",
+    value: (control: AbstractControl) =>
+      `mínimo de of <strong>${control.errors.minlength.requiredLength} caracteres</strong>`,
+  },
+  {
+    key: "emailsNotMatch",
+    value: (control: AbstractControl) =>
+      `os emails <strong>estão diferentes!</strong>`,
   },
 ];

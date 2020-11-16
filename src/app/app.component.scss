@@ -29,6 +29,7 @@
     &::ng-deep router-outlet.main ~ * {
       position: absolute;
       width: 100%;
+      max-width: rem($global-max-width);
 
       // @include flex-center;
     }
