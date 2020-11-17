@@ -65,7 +65,6 @@ registerLocaleData(ptBr);
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt-PT" },
