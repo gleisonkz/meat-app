@@ -1,23 +1,25 @@
-<a [routerLink]="['/restaurants', restaurant.id]">
-  <div class="restaurant">
-    <img [src]="restaurant.imagePath" class="restaurant__image" />
+<div class="container" @stretch>
+  <a [routerLink]="['/restaurants', restaurant.id]">
+    <div class="restaurant">
+      <img [src]="restaurant.imagePath" class="restaurant__image" />
 
-    <span class="restaurant__name">
-      <strong>{{ restaurant.name }}</strong>
-    </span>
+      <span class="restaurant__name">
+        <strong>{{ restaurant.name }}</strong>
+      </span>
 
-    <mt-restaurant-rating
-      class="restaurant__rating"
-      [rating]="restaurant.rating"
-    >
-    </mt-restaurant-rating>
+      <mt-restaurant-rating
+        class="restaurant__rating"
+        [rating]="restaurant.rating"
+      >
+      </mt-restaurant-rating>
 
-    <span class="restaurant__category">
-      {{ restaurant.category }}
-    </span>
+      <span class="restaurant__category">
+        {{ restaurant.category }}
+      </span>
 
-    <span class="restaurant__delivery-estimate">
-      {{ restaurant.deliveryEstimate }}
-    </span>
-  </div>
-</a>
+      <span class="restaurant__delivery-estimate">
+        {{ restaurant.deliveryEstimate }}
+      </span>
+    </div>
+  </a>
+</div>

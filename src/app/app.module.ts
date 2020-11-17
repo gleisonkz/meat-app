@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { LOCALE_ID, NgModule } from "@angular/core";
 
-import { AppRoutingModule } from "./app-routing.module";
+import { AppRoutingModule, ROUTES } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -21,7 +21,7 @@ import ptBr from "@angular/common/locales/pt";
 import { registerLocaleData } from "@angular/common";
 import { OrderComponent } from "./pages/order/order.component";
 import { MaterialModule } from "./modules/material/material.module";
-import { MatInputModule } from "@angular/material/input";
+
 import { ReactiveFormsModule } from "@angular/forms";
 import { ShowValidationDirective } from "./directives/show-validation.directive";
 import { ErrorStateMatcher } from "@angular/material/core";
@@ -32,6 +32,7 @@ import { DeliveryCostsComponent } from "./components/delivery-costs/delivery-cos
 import { OrderFinishedComponent } from "./pages/order-finished/order-finished.component";
 import { RatingComponent } from "./components/rating/rating.component";
 import { OrderGuard } from "./guards/order.guard";
+import { PreloadAllModules, RouterModule } from "@angular/router";
 registerLocaleData(ptBr);
 
 @NgModule({
@@ -64,6 +65,7 @@ registerLocaleData(ptBr);
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt-PT" },

@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 import { RestaurantsComponent } from "./pages/restaurants/restaurants.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { RestaurantDetailComponent } from "./pages/restaurant-detail/restaurant-detail.component";
@@ -9,7 +9,7 @@ import { OrderComponent } from "./pages/order/order.component";
 import { OrderFinishedComponent } from "./pages/order-finished/order-finished.component";
 import { OrderGuard } from "./guards/order.guard";
 
-const routes: Routes = [
+export const ROUTES: Routes = [
   { path: "", component: HomeComponent },
   { path: "restaurants", component: RestaurantsComponent },
   {
@@ -35,7 +35,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(ROUTES)],
+
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

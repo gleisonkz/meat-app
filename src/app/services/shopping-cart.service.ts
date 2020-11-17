@@ -2,12 +2,13 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Subject, Observable } from "rxjs";
 import { CartItem } from "../models/cart-item";
 import { MenuItem } from "../models/menu-item";
+import { NotificationService } from "./notification.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class ShoppingCartService {
-  constructor() {}
+  constructor(private notificationService: NotificationService) {}
 
   private itemsSource = new BehaviorSubject<CartItem[]>([]);
   items$: Observable<CartItem[]> = this.itemsSource.asObservable();
@@ -52,10 +53,16 @@ export class ShoppingCartService {
     const items = this.itemsSource.value;
     items.splice(items.indexOf(item), 1);
     this.itemsSource.next(items);
+    this.notificationService.showMessage(
+      `Você removeu o item ${item.menuItem.name}`
+    );
   }
 
   public clear() {
     this.itemsSource.next([]);
+    this.notificationService.showMessage(
+      "Todos os itens foram removido com sucesso!"
+    );
   }
 
   public getTotal(): number {
