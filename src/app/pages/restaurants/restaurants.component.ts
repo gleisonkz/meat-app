@@ -60,8 +60,5 @@ export class RestaurantsComponent implements OnInit {
         )
       )
       .subscribe(restaurants => (this.restaurants = restaurants));
-    // this.searchControl.valueChanges
-    //   .pipe(debounceTime(500), distinctUntilChanged())
-    //   .subscribe(value => this.restaurantesService.getRestaurants(value));
   }
 }
