@@ -33,6 +33,7 @@ import { OrderFinishedComponent } from "./pages/order-finished/order-finished.co
 import { RatingComponent } from "./components/rating/rating.component";
 import { OrderGuard } from "./guards/order.guard";
 import { PreloadAllModules, RouterModule } from "@angular/router";
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 registerLocaleData(ptBr);
 
 @NgModule({
@@ -57,6 +58,7 @@ registerLocaleData(ptBr);
     DeliveryCostsComponent,
     OrderFinishedComponent,
     RatingComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

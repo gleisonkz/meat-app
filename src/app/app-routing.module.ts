@@ -8,6 +8,7 @@ import { ReviewsComponent } from "./components/reviews/reviews.component";
 import { OrderComponent } from "./pages/order/order.component";
 import { OrderFinishedComponent } from "./pages/order-finished/order-finished.component";
 import { OrderGuard } from "./guards/order.guard";
+import { NotFoundComponent } from "./pages/not-found/not-found.component";
 
 export const ROUTES: Routes = [
   { path: "", component: HomeComponent },
@@ -32,6 +33,7 @@ export const ROUTES: Routes = [
     component: OrderFinishedComponent,
     canActivate: [OrderGuard],
   },
+  { path: "**", component: NotFoundComponent },
 ];
 
 @NgModule({
