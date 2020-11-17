@@ -10,6 +10,32 @@
     color: $color-text;
   }
 
+  &__search-bar {
+    margin-top: rem(20);
+    max-width: 1040px;
+    width: 100%;
+
+    input,
+    form {
+      width: 100%;
+    }
+
+    input {
+      border-radius: $global-radius;
+      padding: rem(10);
+      outline: none;
+    }
+
+    form {
+      @include flex-center;
+    }
+
+    i {
+      margin-left: rem(5);
+      font-size: rem(30);
+    }
+  }
+
   &__list {
     display: grid;
     grid-template-columns: 1fr 1fr;

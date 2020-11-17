@@ -2,19 +2,24 @@
 @import "../../../sass/mixins";
 @import "../../../sass/functions";
 
-.header {
+:host {
   background-color: $color-primary;
+  @include flex-center;
+  width: 100%;
+}
+
+.header {
   height: 50px;
   @include flex-center;
-  padding: 0 50px;
+  justify-content: space-between;
+  max-width: $global-max-width;
+  width: 100%;
 }
 
 .menu {
   display: flex;
   height: 100%;
   width: 100%;
-
-  max-width: $global-max-width;
 
   &__list {
     @include flex-center;

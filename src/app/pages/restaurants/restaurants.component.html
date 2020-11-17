@@ -1,6 +1,18 @@
 <section class="restaurants">
   <h1 class="restaurants__title">All the restaurants</h1>
 
+  <div class="restaurants__search-bar">
+    <form [formGroup]="searchForm">
+      <input
+        type="text"
+        name=""
+        id=""
+        placeholder="O que você deseja procurar?"
+      />
+      <i class="fa fa-search"></i>
+    </form>
+  </div>
+
   <section class="restaurants__list">
     <div *ngFor="let restaurant of restaurants">
       <mt-restaurant [restaurant]="restaurant"></mt-restaurant>
