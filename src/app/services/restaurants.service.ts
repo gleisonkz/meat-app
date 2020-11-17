@@ -14,9 +14,11 @@ import { Review } from "../models/review";
 export class RestaurantsService {
   constructor(private http: HttpClient) {}
 
-  getRestaurants(): Observable<Restaurant[]> {
+  getRestaurants(searchTerm = ""): Observable<Restaurant[]> {
     return this.http
-      .get<Restaurant[]>(`${environment.meatApiUrl}/restaurants`)
+      .get<Restaurant[]>(`${environment.meatApiUrl}/restaurants`, {
+        params: { q: searchTerm },
+      })
       .pipe(catchError(ErrorHandler.handleError));
   }
 

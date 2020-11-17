@@ -2,12 +2,12 @@
   <h1 class="restaurants__title">All the restaurants</h1>
 
   <div class="restaurants__search-bar">
+    <div>{{ searchTerm }}</div>
     <form [formGroup]="searchForm">
       <input
         [@toggleSearch]="searchBarState"
         type="text"
-        name=""
-        id=""
+        formControlName="search"
         placeholder="O que você deseja procurar?"
       />
       <i (click)="searchBarState = !searchBarState" class="fa fa-search"></i>
