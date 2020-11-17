@@ -4,7 +4,11 @@
     <strong>Cart</strong>
   </div>
   <div *ngIf="existingCartItem" class="cart__content">
-    <div *ngFor="let item of items$ | async" class="cart__item">
+    <div
+      *ngFor="let item of items$ | async"
+      class="cart__item"
+      [@row]="rowState"
+    >
       <div>
         <i
           (click)="quantityDown(item)"
