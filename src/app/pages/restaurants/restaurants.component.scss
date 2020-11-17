@@ -24,15 +24,24 @@
       border-radius: $global-radius;
       padding: rem(10);
       outline: none;
+      opacity: 0;
     }
 
     form {
+      height: rem(35);
       @include flex-center;
     }
 
     i {
       margin-left: rem(5);
       font-size: rem(30);
+      color: $color-text;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    i:hover {
+      transform: scale(1.1);
     }
   }
 

@@ -4,12 +4,13 @@
   <div class="restaurants__search-bar">
     <form [formGroup]="searchForm">
       <input
+        [@toggleSearch]="searchBarState"
         type="text"
         name=""
         id=""
         placeholder="O que você deseja procurar?"
       />
-      <i class="fa fa-search"></i>
+      <i (click)="searchBarState = !searchBarState" class="fa fa-search"></i>
     </form>
   </div>
 
