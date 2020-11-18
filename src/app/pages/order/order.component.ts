@@ -59,6 +59,10 @@ export class OrderComponent implements OnInit {
     this.orderItems$ = this.cartService.items$;
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(c => c.unsubscribe());
+  }
+
   static matchEmail(formGroup: AbstractControl): { [key: string]: boolean } {
     const email = formGroup.get("email");
     const emailCheck = formGroup.get("emailCheck");

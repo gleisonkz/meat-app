@@ -7,6 +7,7 @@ import {
 } from "@angular/animations";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
+import { Subscription } from "rxjs";
 import { debounceTime, distinctUntilChanged, switchMap } from "rxjs/operators";
 import { Restaurant } from "src/app/models/restaurant";
 import { RestaurantsService } from "../../services/restaurants.service";
@@ -40,22 +41,28 @@ export class RestaurantsComponent implements OnInit {
   searchForm: FormGroup;
   searchControl: FormControl;
   searchBarState = false;
-  searchTerm = "";
+  subscriptions: Subscription[] = [];
 
   constructor(private restaurantesService: RestaurantsService) {}
 
   ngOnInit() {
     this.searchControl = new FormControl("");
     this.searchForm = new FormGroup({ search: this.searchControl });
-    this.searchControl.valueChanges
-      .pipe(
-        debounceTime(500),
-        distinctUntilChanged(),
-        switchMap(searchTerm =>
-          this.restaurantesService.getRestaurants(searchTerm)
+    this.subscriptions.push(
+      this.searchControl.valueChanges
+        .pipe(
+          debounceTime(500),
+          distinctUntilChanged(),
+          switchMap(searchTerm =>
+            this.restaurantesService.getRestaurants(searchTerm)
+          )
         )
-      )
-      .subscribe(restaurants => (this.restaurants = restaurants));
+        .subscribe(restaurants => (this.restaurants = restaurants))
+    );
     this.searchControl.reset("");
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(c => c.unsubscribe());
   }
 }
