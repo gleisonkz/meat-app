@@ -45,10 +45,6 @@ export class RestaurantsComponent implements OnInit {
   constructor(private restaurantesService: RestaurantsService) {}
 
   ngOnInit() {
-    this.restaurantesService
-      .getRestaurants()
-      .subscribe(restaurants => (this.restaurants = restaurants));
-
     this.searchControl = new FormControl("");
     this.searchForm = new FormGroup({ search: this.searchControl });
     this.searchControl.valueChanges
@@ -60,5 +56,6 @@ export class RestaurantsComponent implements OnInit {
         )
       )
       .subscribe(restaurants => (this.restaurants = restaurants));
+    this.searchControl.reset("");
   }
 }
